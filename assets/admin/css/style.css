@@ -1,0 +1,54 @@
+#ds-wrapper .ds-block{ position: relative; z-index: 8;}
+#ds-wrapper .ds-block > .ds-block-title{ position: relative; z-index: 9;}
+#ds-wrapper .ds-block > .ds-block-title + div{ height: 0; opacity: 0; width: 100%; overflow: hidden; }
+#ds-wrapper .ds-block > .ds-block-title:not(.expanded) .dashicons-arrow-down-alt2,
+#ds-wrapper .ds-block > .ds-block-title.expanded .dashicons-arrow-right-alt2{ display: none; }
+#ds-wrapper .ds-block > .ds-block-title.expanded .dashicons-arrow-down-alt2,
+#ds-wrapper .ds-block > .ds-block-title:not(.expanded) .dashicons-arrow-right-alt2{ display: block; }
+#ds-wrapper .ds-block > .ds-block-title.expanded + div{ transition: opacity 0.4s ease-in-out; height: auto; opacity: 1; }
+#ds-wrapper .ds-block > .ds-block-title:not(.expanded) + div{ padding: 0; }
+
+#ds-wrapper #logo > div,
+#ds-wrapper #logo.loaded > #logo-add,
+#ds-wrapper #logo > #logo-remove{ display: none; }
+#ds-wrapper #logo > div{
+    max-width: 200px;
+    max-height: 200px;
+}
+#ds-wrapper #logo img{ max-width: 100%; height: auto; }
+#ds-wrapper #logo.loaded > div,
+#ds-wrapper #logo.loaded > #logo-remove{ display: block; }
+
+#ds-wrapper input[type="checkbox"]{ margin: 0; }
+#ds-wrapper .image-radio{ height: 150px; background: #efefef; overflow: hidden; margin-bottom: 2%; position: relative; }
+#ds-wrapper .image-radio input{ display: none; }
+#ds-wrapper .image-radio > input + img{ opacity: 0.5; border-top: 0 solid; width: 150%; left: -25%; position: absolute; transition: border 0.2s ease-in-out; }
+#ds-wrapper .image-radio:hover > input + img,
+#ds-wrapper .image-radio > input:checked + img{ opacity: 1; border-top: 5px solid #515151; }
+#ds-wrapper .image-radio > .remove{ display: none; }
+#ds-wrapper .image-radio.custom > .remove{
+    display: initial;
+    transition: all 0.2s ease-in-out;
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    line-height: 18px;
+    background: #515151;
+    color: #fff;
+    font-weight: bold;
+    opacity: 1;
+    z-index: 9;
+}
+
+#ds-wrapper input[type="text"],
+#ds-wrapper input[type="number"],
+#ds-wrapper select,
+#ds-wrapper input[type="checkbox"]{ height: 25px; margin: 0; }
+#ds-wrapper input[type="checkbox"]{ width: 25px; }
+#ds-wrapper input[type="checkbox"]:checked:before{ margin: 2px 0 0 0; }
+
+#ds-wrapper #image-add{ transition: all 0.2s ease-in-out; cursor: pointer; background: transparent; border: 2px solid #515151;text-transform: uppercase; font-size: 18px; font-weight: bold; color: #515151; }
+#ds-wrapper #image-add:hover{ border-top: 5px solid #515151; }
