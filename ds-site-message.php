@@ -80,26 +80,11 @@ class dssm{
                     ),
                     'images' => array(
                         'default' => array(
-                            array(
-                                'name' => 'lights',
-                                'url' => DSSM_ASSETS . 'images/lights.jpg'
-                            ),
-                            array(
-                                'name' => 'bricks',
-                                'url' => DSSM_ASSETS . 'images/bricks.jpg'
-                            ),
-                            array(
-                                'name' => 'pencils',
-                                'url' => DSSM_ASSETS . 'images/pencils.jpg'
-                            ),
-                            array(
-                                'name' => 'coffee',
-                                'url' => DSSM_ASSETS . 'images/coffee.jpg'
-                            ),
-                            array(
-                                'name' => 'clock',
-                                'url' => DSSM_ASSETS . 'images/clock.jpg'
-                            )
+                            array('name' => 'lights', 'url' => DSSM_ASSETS . 'images/lights.jpg'),
+                            array('name' => 'bricks', 'url' => DSSM_ASSETS . 'images/bricks.jpg'),
+                            array('name' => 'pencils', 'url' => DSSM_ASSETS . 'images/pencils.jpg'),
+                            array('name' => 'coffee', 'url' => DSSM_ASSETS . 'images/coffee.jpg'),
+                            array('name' => 'clock', 'url' => DSSM_ASSETS . 'images/clock.jpg')
                         )
                     )
                 )

@@ -26,22 +26,22 @@ jQuery(document).ready(function(){
     }, 5000);
 
     function buildPaddedBoxes(){
-        $('.ds-row-equal-height').each(function(){
+        jQuery('.ds-row-equal-height').each(function(){
             var height = 0;
-            var elements = $(this).find('> .ds-col');
+            var elements = jQuery(this).find('> .ds-col');
 
             if(elements.length > 1){
                 elements.each(function(){
-                    $(this).prop('style', null);
+                    jQuery(this).prop('style', null);
 
-                    if($(this).outerHeight() > height){
-                        height = $(this).outerHeight();
+                    if(jQuery(this).outerHeight() > height){
+                        height = jQuery(this).outerHeight();
                     }
                 });
 
                 elements.each(function(){
                     if(height > 0){
-                        $(this).css('height', height);
+                        jQuery(this).css('height', height);
                     }
                 });
             }

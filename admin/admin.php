@@ -1,6 +1,15 @@
 <?php
 if(!defined('ABSPATH')) exit;
 
+// DS Support Mail Submission.
+if(!function_exists('ds_support_callback')){
+    function ds_support_callback(){
+        status_header(200);
+        die("Server received '{$_REQUEST['data']}' from your browser.");
+    }
+}
+add_action('admin_post_ds_support', 'ds_support_callback');
+
 class dssm_admin{
     private $capability, $brand, $template, $slug, $plugin;
     
@@ -18,7 +27,7 @@ class dssm_admin{
     
     function startup(){
         // Register and handle settings.
-        require_once DSSM_ROOT . 'admin/includes/dssm-admin-class-settings.php';
+        require_once DSSM_ROOT . 'admin/inc/dssm-admin-class-settings.php';
         $settings_handler = new dssm_admin_settings_handler();
         $settings_handler->startup();
         
@@ -54,9 +63,6 @@ class dssm_admin{
             array_push($links, $settings_link);
             return $links;
         });
-        
-        // Add support dock.
-        add_action('admin_post_custom_action_hook', 'ds_support');
     }
     
     // Load Main Template (General Page)
@@ -67,16 +73,5 @@ class dssm_admin{
     // Load Settings Template
     function load_settings(){
         load_template(DSSM_ROOT . 'admin/templates/settings.php');
-    }
-    
-    // Submit support requests
-    function support_mail(){
-        
-    }
-}
-
-if(!function_exists('ds_support')){
-    function ds_support(){
-        echo "<pre>"; print_r($_POST); echo "</pre>";
     }
 }
