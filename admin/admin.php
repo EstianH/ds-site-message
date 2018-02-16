@@ -23,10 +23,8 @@ class dssm_admin{
         $settings_handler->startup();
         
         // Register styles and scripts.
-        if(!wp_style_is('ds-style')){
-            wp_register_style('ds-style', DSSM_ASSETS . 'admin/css/general.css', array(), DSSM_VERSION);
-        }
-        
+        if(!wp_style_is('ds-style')) wp_register_style('ds-style', DSSM_ASSETS . 'admin/css/general.css', array(), DSSM_VERSION);
+        if(!wp_script_is('ds-script')) wp_register_script('ds-script', DSSM_ASSETS . 'admin/js/general.js', array(), DSSM_VERSION);
         wp_register_style('dssm-style', DSSM_ASSETS . 'admin/css/style.css', array(), DSSM_VERSION);
         wp_register_script('dssm-script', DSSM_ASSETS . 'admin/js/script.js', array(), DSSM_VERSION);
         
@@ -34,6 +32,8 @@ class dssm_admin{
             wp_enqueue_style('ds-style');
             wp_enqueue_style('dssm-style');
             
+            if(get_current_screen()->id === 'toplevel_page_ds-general' ||
+                get_current_screen()->id === 'divspot_page_dssm-settings') wp_enqueue_script('ds-script');
             if(get_current_screen()->id === 'divspot_page_dssm-settings'){
                 wp_enqueue_script('dssm-script');
                 wp_enqueue_media(); // WP Media
@@ -54,6 +54,9 @@ class dssm_admin{
             array_push($links, $settings_link);
             return $links;
         });
+        
+        // Add support dock.
+        add_action('admin_post_custom_action_hook', 'ds_support');
     }
     
     // Load Main Template (General Page)
@@ -64,5 +67,16 @@ class dssm_admin{
     // Load Settings Template
     function load_settings(){
         load_template(DSSM_ROOT . 'admin/templates/settings.php');
+    }
+    
+    // Submit support requests
+    function support_mail(){
+        
+    }
+}
+
+if(!function_exists('ds_support')){
+    function ds_support(){
+        echo "<pre>"; print_r($_POST); echo "</pre>";
     }
 }

@@ -38,7 +38,7 @@
                                     <span class="dashicons dashicons-arrow-right-alt2 floatright"></span>
                                     <span class="dashicons dashicons-arrow-down-alt2 floatright"></span>
                                 </h2>
-                                <input name="dssm-sections[general]" type="checkbox" value="1"<?php echo (isset($dssm_sections['general']) ? ' checked="checked"' : ''); ?> />
+                                <input class="ds-section" name="dssm-sections[general]" type="checkbox" value="1"<?php echo (isset($dssm_sections['general']) ? ' checked="checked"' : ''); ?> />
                             </label>
                             <div class="pt-2 pr-2 pb-2 pl-2">
                                 <div class="ds-row clearfix pb-1 border-bottom border-grey">
@@ -71,7 +71,7 @@
                                     <span class="dashicons dashicons-arrow-right-alt2 floatright"></span>
                                     <span class="dashicons dashicons-arrow-down-alt2 floatright"></span>
                                 </h2>
-                                <input name="dssm-sections[message]" type="checkbox" value="1"<?php echo (isset($dssm_sections['message']) ? ' checked="checked"' : ''); ?> />
+                                <input class="ds-section" name="dssm-sections[message]" type="checkbox" value="1"<?php echo (isset($dssm_sections['message']) ? ' checked="checked"' : ''); ?> />
                             </label>
                             <div class="pt-2 pr-2 pb-2 pl-2">
                                 <div class="ds-row clearfix pb-1 border-bottom border-grey">
@@ -109,7 +109,7 @@
                                     <span class="dashicons dashicons-arrow-right-alt2 floatright"></span>
                                     <span class="dashicons dashicons-arrow-down-alt2 floatright"></span>
                                 </h2>
-                                <input name="dssm-sections[social]" type="checkbox" value="1"<?php echo (isset($dssm_sections['social']) ? ' checked="checked"' : ''); ?> />
+                                <input class="ds-section" name="dssm-sections[social]" type="checkbox" value="1"<?php echo (isset($dssm_sections['social']) ? ' checked="checked"' : ''); ?> />
                             </label>
                             <div class="pt-2 pr-2 pb-2 pl-2">
                                 <div class="ds-row clearfix pb-1 border-bottom border-grey">
@@ -152,7 +152,7 @@
                                     <span class="dashicons dashicons-arrow-right-alt2 floatright"></span>
                                     <span class="dashicons dashicons-arrow-down-alt2 floatright"></span>
                                 </h2>
-                                <input name="dssm-sections[styling-font]" type="checkbox" value="1"<?php echo (isset($dssm_sections['styling-font']) ? ' checked="checked"' : ''); ?> />
+                                <input class="ds-section" name="dssm-sections[styling-font]" type="checkbox" value="1"<?php echo (isset($dssm_sections['styling-font']) ? ' checked="checked"' : ''); ?> />
                             </label>
                             <div class="pt-2 pr-2 pb-2 pl-2">
                                 <div class="ds-row clearfix pb-1 border-bottom border-grey">
@@ -203,7 +203,7 @@
                                     <span class="dashicons dashicons-arrow-right-alt2 floatright"></span>
                                     <span class="dashicons dashicons-arrow-down-alt2 floatright"></span>
                                 </h2>
-                                <input name="dssm-sections[styling-background]" type="checkbox" value="1"<?php echo (isset($dssm_sections['styling-background']) ? ' checked="checked"' : ''); ?> />
+                                <input class="ds-section" name="dssm-sections[styling-background]" type="checkbox" value="1"<?php echo (isset($dssm_sections['styling-background']) ? ' checked="checked"' : ''); ?> />
                             </label>
                             <div class="pt-2 pr-2 pb-2 pl-2">
                                 <div class="ds-row clearfix pb-1 border-bottom border-grey">
@@ -244,7 +244,7 @@
                                     <span class="dashicons dashicons-arrow-right-alt2 floatright"></span>
                                     <span class="dashicons dashicons-arrow-down-alt2 floatright"></span>
                                 </h2>
-                                <input name="dssm-sections[styling-custom]" type="checkbox" value="1"<?php echo (isset($dssm_sections['styling-custom']) ? ' checked="checked"' : ''); ?> />
+                                <input class="ds-section" name="dssm-sections[styling-custom]" type="checkbox" value="1"<?php echo (isset($dssm_sections['styling-custom']) ? ' checked="checked"' : ''); ?> />
                             </label>
                             <div class="pt-2 pr-2 pb-2 pl-2">
                                 <div class="ds-row clearfix">

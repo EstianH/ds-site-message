@@ -24,7 +24,49 @@
                     <?php } ?>
                 </div>
             <?php } ?>
-            <div class="ds-row clearfix">
+            <div class="ds-row clearfix ds-row-equal-height">
+                <div class="ds-block ds-col ds-col-6 mt-2">
+                    <label class="ds-block-title pt-2 pr-2 pb-2 pl-2 expanded">
+                        <h2 class="mt-0 mb-0">
+                            <span class="dashicons dashicons-feedback"></span>
+                            <?php _e('Support'); ?>
+                        </h2>
+                    </label>
+                    <div class="pt-2 pr-2 pb-2 pl-2">
+                        <form action="<?php echo get_admin_url() . 'admin-post.php'; ?>" method="POST">
+                            <input type="hidden" name="action" value="ds_support" />
+                            <div class="ds-row clearfix border-bottom border-grey pb-1">
+                                <label class="ds-col ds-col-3 ds-2col"><?php _e('Full Name'); ?>:</label>
+                                <div class="ds-col ds-col-9">
+                                    <input class="ds-col-12" type="text" name="name" value="" placeholder="Your full name" />
+                                </div>
+                            </div>
+                            <div class="ds-row clearfix pt-1 pb-1 border-bottom border-grey">
+                                <label class="ds-col ds-col-3 ds-2col"><?php _e('Plugin'); ?>:</label>
+                                <div class="ds-col ds-col-9">
+                                    <select class="ds-col-12" name="type">
+                                        <?php foreach($plugin_list as $plugin => $data){ ?>
+                                            <?php if(is_plugin_active($plugin . '/' . $plugin . '.php')){ ?>
+                                                <option value="<?php echo $data['name']; ?>"><?php echo $data['name']; ?></option>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="ds-row clearfix pt-1 pb-1 border-bottom border-grey">
+                                <label class="ds-col ds-col-3 ds-2col"><?php _e('Message'); ?>:</label>
+                                <div class="ds-col ds-col-9">
+                                    <textarea class="ds-col-12" rows="3" name="message"></textarea>
+                                </div>
+                            </div>
+                            <div class="ds-row clearfix pt-1">
+                                <div class="ds-col ds-col-12 textright pt-1">
+                                    <?php submit_button(); ?>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <div class="ds-block ds-col ds-col-6 mt-2">
                     <label class="ds-block-title pt-2 pr-2 pb-2 pl-2 expanded">
                         <h2 class="mt-0 mb-0">
