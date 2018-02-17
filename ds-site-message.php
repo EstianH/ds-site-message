@@ -29,11 +29,7 @@ class dssm{
         global $pagenow; // WP Global.
         
         if(is_admin()){
-            add_action('admin_menu', function(){
-                require_once DSSM_ROOT . '/admin/admin.php';
-                $dssm_admin = new dssm_admin();
-                $dssm_admin->startup();
-            });
+            require_once DSSM_ROOT . '/admin/admin.php';
         } else{
             if((isset($dssm_settings['general']['status']) && $dssm_settings['general']['status'] && !current_user_can('edit_plugins')) || isset($_GET['dssm-preview'])){
                 // Deny Site Message when Wordpress loads the login page, and when an API call is made.

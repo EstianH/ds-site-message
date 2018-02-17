@@ -32,7 +32,7 @@
                             <?php _e('Support'); ?>
                         </h2>
                     </label>
-                    <?php $ds_support_nonce = wp_create_nonce('nds_add_user_meta_form_nonce'); ?>
+                    <?php $ds_support_nonce = wp_create_nonce('ds_nonce'); ?>
                     <div class="pt-2 pr-2 pb-2 pl-2">
                         <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST">
                             <input type="hidden" name="action" value="ds_support" />
