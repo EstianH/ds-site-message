@@ -71,7 +71,7 @@ body{
     border-radius: 5px;
     background-color: transparent;
 }
-#message-heading{ border-bottom: 1px solid; padding-bottom: 30px; }
+#message-heading{ border-bottom: 1px solid; padding-bottom: 25px; }
 #message-heading > h1{
     display: inline-block;
     font-size: 1.5rem;
