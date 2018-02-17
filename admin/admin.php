@@ -4,14 +4,29 @@ if(!defined('ABSPATH')) exit;
 $dssm_admin = new dssm_admin();
 $dssm_admin->startup();
 
+// Register and handle settings.
+require_once DSSM_ROOT . 'admin/inc/dssm-admin-class-settings.php';
+$settings_handler = new dssm_admin_settings_handler();
+$settings_handler->startup();
+
 // DS Support Mail Submission.
 if(!function_exists('ds_support_callback')){
     function ds_support_callback(){
         if(isset($_POST['ds_nonce']) && wp_verify_nonce($_POST['ds_nonce'], 'ds_nonce')){
-            // sanitize_email
-            // sanitize_text_field
-            wp_redirect(esc_url(admin_url('admin.php') . '?page=ds-general'));
-            $this->custom_redirect('Support ticket created successfully.', $_POST);
+            $plugin = sanitize_text_field($_POST['ds_plugin']);
+            $name = sanitize_text_field($_POST['ds_name']);
+            $email = sanitize_email($_POST['ds_email']);
+            $message = sanitize_text_field($_POST['ds_message']);
+            $headers[] = 'Content-Type: text/html; charset=UTF-8>';
+            $headers[] = 'From: ' . $name . ' <' . DS_SUPPORT_EMAIL . '>';
+            $headers[] = 'Bcc: ' . $name . ' <x+562194273659582@mail.asana.com>';
+            
+            $messagePrepared = '<strong>From:</strong><br />' . $name . '(' . $email . ')' . '<br /><br />';
+            $messagePrepared .= '<strong>Message:</strong><br />' . $message . '<br /></br />';
+            
+            // To, Subject, Message, Headers, Attachments.
+            wp_mail(DS_SUPPORT_EMAIL, $plugin, $messagePrepared, $headers);
+            wp_safe_redirect(admin_url('admin.php') . '?page=ds-general&ds_support_request=sent');
             die();
         } else{
             wp_die(__('Invalid nonce specified', DSSM_TITLE), __('Error', DSSM_TITLE), array(
@@ -41,11 +56,6 @@ class dssm_admin{
     function startup(){
         // Startup admin pages.
         add_action('admin_menu', function(){
-            // Register and handle settings.
-            require_once DSSM_ROOT . 'admin/inc/dssm-admin-class-settings.php';
-            $settings_handler = new dssm_admin_settings_handler();
-            $settings_handler->startup();
-            
             // Setup admin menu
             if(!isset($GLOBALS['admin_page_hooks'][$this->slug])){ // Load general page.
                 add_menu_page($this->brand, $this->brand, $this->capability, $this->slug, array($this, $this->template), '', 79);

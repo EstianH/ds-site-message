@@ -4,7 +4,7 @@
 #ds-wrapper .wp-editor-tabs > button{ box-sizing: initial; }
 #ds-wrapper *:focus{ outline: none; }
 
-#ds-wrapper .success{ background-color: #f8fff8; }
+#ds-wrapper .ds-success{ background-color: #f8fff8; }
 
 #ds-wrapper label { line-height: 25px; }
 
