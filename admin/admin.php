@@ -9,35 +9,6 @@ require_once DSSM_ROOT . 'admin/inc/dssm-admin-class-settings.php';
 $settings_handler = new dssm_admin_settings_handler();
 $settings_handler->startup();
 
-// DS Support Mail Submission.
-if(!function_exists('ds_support_callback')){
-    function ds_support_callback(){
-        if(isset($_POST['ds_nonce']) && wp_verify_nonce($_POST['ds_nonce'], 'ds_nonce')){
-            $plugin = sanitize_text_field($_POST['ds_plugin']);
-            $name = sanitize_text_field($_POST['ds_name']);
-            $email = sanitize_email($_POST['ds_email']);
-            $message = sanitize_text_field($_POST['ds_message']);
-            $headers[] = 'Content-Type: text/html; charset=UTF-8>';
-            $headers[] = 'From: ' . $name . ' <' . DS_SUPPORT_EMAIL . '>';
-            $headers[] = 'Bcc: ' . $name . ' <x+562194273659582@mail.asana.com>';
-            
-            $messagePrepared = '<strong>From:</strong><br />' . $name . '(' . $email . ')' . '<br /><br />';
-            $messagePrepared .= '<strong>Message:</strong><br />' . $message . '<br /></br />';
-            
-            // To, Subject, Message, Headers, Attachments.
-            wp_mail(DS_SUPPORT_EMAIL, $plugin, $messagePrepared, $headers);
-            wp_safe_redirect(admin_url('admin.php') . '?page=ds-general&ds_support_request=sent');
-            die();
-        } else{
-            wp_die(__('Invalid nonce specified', DSSM_TITLE), __('Error', DSSM_TITLE), array(
-                'response' => 403,
-                'back_link' => 'admin.php?page=' . DSSM_TITLE,
-            ));
-        }
-    }
-}
-add_action('admin_post_ds_support', 'ds_support_callback');
-
 class dssm_admin{
     private $capability, $brand, $template, $slug, $plugin;
     
