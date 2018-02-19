@@ -25,7 +25,7 @@
             <?php } ?>
             <div class="ds-row clearfix ds-row-equal-height">
                 <div class="ds-block ds-col ds-col-6 mt-2">
-                    <label class="ds-block-title pt-2 pr-2 pb-2 pl-2 expanded">
+                    <label class="ds-block-title pt-2 pr-2 pb-2 pl-2">
                         <h2 class="mt-0 mb-0">
                             <span class="dashicons dashicons-feedback"></span>
                             <?php _e('Support'); ?>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="ds-block ds-col ds-col-6 mt-2">
-                    <label class="ds-block-title pt-2 pr-2 pb-2 pl-2 expanded">
+                    <label class="ds-block-title pt-2 pr-2 pb-2 pl-2">
                         <h2 class="mt-0 mb-0">
                             <span class="dashicons dashicons-feedback"></span>
                             <?php _e('Review'); ?>
