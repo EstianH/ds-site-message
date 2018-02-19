@@ -3,7 +3,7 @@
 Plugin Name:  DS Site Message
 Plugin URI:   https://www.divspot.co.za
 Description:  Add site messages to your wordpress site.
-Version:      1.1
+Version:      1.11
 Author:       EstianH
 Author URI:   https://www.divspot.co.za
 License:      GPL2
