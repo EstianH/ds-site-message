@@ -3,10 +3,10 @@
 Plugin Name:  DS Site Message
 Plugin URI:   https://www.divspot.co.za
 Description:  Add site messages to your wordpress site.
-Version:      1.11
+Version:      1.0
 Author:       EstianH
 Author URI:   https://www.divspot.co.za
-License:      GPL2
+License:      GPLv2 or later
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -19,7 +19,7 @@ define('DSSM_URL', plugins_url('', DSSM_BASENAME) . '/'); // User-Friendly URL
 define('DSSM_ROOT', __DIR__ . '/'); // FTP Path
 define('DSSM_ASSETS', DSSM_URL . 'assets/'); // FTP Path
 define('DSSM_TITLE', 'DS Site Message');
-define('DSSM_VERSION', '1.11');
+define('DSSM_VERSION', '1.0');
 
 /* ================== STARTUP ================== */
 $dssm = new dssm();
