@@ -31,7 +31,6 @@
                             <?php _e('Support'); ?>
                         </h2>
                     </label>
-                    <?php $ds_support_nonce = wp_create_nonce('ds_nonce'); ?>
                     <div class="pt-2 pr-2 pb-2 pl-2">
                         <p>Please open a ticket on divSpot by filling in the <a href="<?php echo DS_URL; ?>/support" target="_blank">support form</a>.</p>
                     </div>
