@@ -13,7 +13,7 @@ License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 if(!defined('ABSPATH')) exit;
 
 // Definitions
-if(!defined('DS_URL')) define('DS_URL', 'https://www.divspot.co.za');
+if(!defined('DIVSPOT_URL')) define('DIVSPOT_URL', 'https://www.divspot.co.za');
 define('DSSM_BASENAME', plugin_basename(__FILE__));
 define('DSSM_URL', plugins_url('', DSSM_BASENAME) . '/'); // User-Friendly URL
 define('DSSM_ROOT', __DIR__ . '/'); // FTP Path
