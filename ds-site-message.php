@@ -22,9 +22,9 @@ define('DSSM_TITLE', 'DS Site Message');
 define('DSSM_VERSION', '1.0');
 
 /* ================== STARTUP ================== */
-$dssm = new dssm();
+$dssm = new ds_site_message();
 
-class dssm{
+class ds_site_message{
     function startup(){
         $dssm_settings = get_option('dssm-settings');
         global $pagenow; // WP Global.
