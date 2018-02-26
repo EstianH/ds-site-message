@@ -29,7 +29,7 @@ class dssm_admin{
         add_action('admin_menu', function(){
             // Setup admin menu
             if(!isset($GLOBALS['admin_page_hooks'][$this->slug])){ // Load general page.
-                add_menu_page($this->brand, $this->brand, $this->capability, $this->slug, array($this, $this->template), '', 79);
+                add_menu_page($this->brand, $this->brand, $this->capability, $this->slug, array($this, $this->template), DSSM_ASSETS . 'images/icon-xs.png', 79);
                 add_submenu_page($this->slug, 'General', 'General', $this->capability, $this->slug, array($this, $this->template));
             }
             
