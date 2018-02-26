@@ -1,12 +1,6 @@
 #ds-wrapper .ds-block{ position: relative; z-index: 8;}
 #ds-wrapper .ds-block > .ds-block-title{ position: relative; z-index: 9;}
-#ds-wrapper .ds-block > .ds-block-title + div{ height: 0; opacity: 0; width: 100%; overflow: hidden; }
-#ds-wrapper .ds-block > .ds-block-title:not(.expanded) .dashicons-arrow-down-alt2,
-#ds-wrapper .ds-block > .ds-block-title.expanded .dashicons-arrow-right-alt2{ display: none; }
-#ds-wrapper .ds-block > .ds-block-title.expanded .dashicons-arrow-down-alt2,
-#ds-wrapper .ds-block > .ds-block-title:not(.expanded) .dashicons-arrow-right-alt2{ display: block; }
-#ds-wrapper .ds-block > .ds-block-title.expanded + div{ transition: opacity 0.4s ease-in-out; height: auto; opacity: 1; }
-#ds-wrapper .ds-block > .ds-block-title:not(.expanded) + div{ padding: 0; }
+#ds-wrapper .ds-block > .ds-block-title + div{ width: 100%; transition: opacity 0.4s ease-in-out; }
 
 #ds-wrapper #logo > div,
 #ds-wrapper #logo.loaded > #logo-add,

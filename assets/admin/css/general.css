@@ -22,8 +22,8 @@
 #ds-wrapper .ds-blocks-container{ width: 100%; }
 
 #ds-wrapper .ds-block{ box-shadow: 0 1px 1px rgba(0,0,0,.04); background: #fff; float: left; }
-#ds-wrapper .ds-block-title{ background: #515151; display: block; }
-#ds-wrapper .ds-block-title > h2{ color: #fff; line-height: 1.1em; }
+#ds-wrapper .ds-block-title{ background: #f9f9f9; display: block; }
+#ds-wrapper .ds-block-title > h2{ color: #515151; line-height: 1.1em; }
 #ds-wrapper .ds-block-title > input{ display: none; }
 
 #ds-wrapper .pt-0{ padding-top: 0; }

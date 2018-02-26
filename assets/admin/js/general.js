@@ -1,17 +1,4 @@
 jQuery(document).ready(function(){
-    /* ============= SECTIONS ============= */
-    jQuery(document).on('change', '[class="ds-section"]', function(){
-        expand_sections(jQuery(this));
-    });
-    
-    function expand_sections(section){
-        if(section.prop('checked') && !section.parent().hasClass('expanded')){
-            section.parent().addClass('expanded');
-        } else{
-            section.parent().removeClass('expanded');
-        }
-    }
-    /* ============= SECTIONS END ============= */
     /* ============= EQUAL HEIGHT ============= */
     // Immediately build padded boxes.
     buildPaddedBoxes();
