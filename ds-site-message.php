@@ -26,44 +26,44 @@ $dssm = new ds_site_message();
 
 class ds_site_message{
     function startup(){
-        $dssm_settings = get_option('dssm-settings');
+        $dssm_content = get_option('dssm-content');
         global $pagenow; // WP Global.
         
         if(is_admin()){
             require_once DSSM_ROOT . '/admin/admin.php';
         } else{
-            if((isset($dssm_settings['general']['status']) && $dssm_settings['general']['status'] && !current_user_can('edit_plugins')) || isset($_GET['dssm-preview'])){
+            if((isset($dssm_content['general']['status']) && $dssm_content['general']['status'] && !current_user_can('edit_plugins')) || isset($_GET['dssm-preview'])){
                 // Deny Site Message when Wordpress loads the login page, and when an API call is made.
                 if(($pagenow != 'wp-login.php' && !strpos($_SERVER['REQUEST_URI'], 'ds-api'))){
-                    if(isset($dssm_settings['general']['headers']) && $dssm_settings['general']['headers']){
+                    if(isset($dssm_content['general']['headers']) && $dssm_content['general']['headers']){
                         header('HTTP/1.1 503 Service Temporarily Unavailable');
                         header('Status: 503 Service Temporarily Unavailable');
-                        header('Retry-After: ' . ($dssm_settings['general']['retryafter'] ? $dssm_settings['general']['retryafter'] : '600'));
+                        header('Retry-After: ' . ($dssm_content['general']['retryafter'] ? $dssm_content['general']['retryafter'] : '600'));
                     }
 
                     // Load message template.
                     load_template(DSSM_ROOT . 'templates/message.php');
                     die();
                 }
-            } else if(isset($dssm_settings['general']['status']) && $dssm_settings['general']['status']){
+            } else if(isset($dssm_content['general']['status']) && $dssm_content['general']['status']){
                 add_action('wp_footer', function(){ load_template(DSSM_ROOT . 'templates/admin-notice.php'); });
             }
         }
     }
     
     function activate(){
-        if(!get_option('dssm-settings')){
-            $default_settings = array(
-                'general' => 1,
-                'message' => 1
-            );
-            update_option('dssm-sections', $default_settings);
-            
+        update_option('dssm-version', DSSM_VERSION);
+        
+        if(!get_option('dssm-content') || !get_option('dssm-design')){
             $default_settings = array(
                 'text' => array(
                     'heading' => get_bloginfo(),
                     'body' => 'We are currently undergoing maintenance.<br />Please check back in 10 minutes.',
-                ),
+                )
+            );
+            update_option('dssm-content', $default_settings);
+            
+            $default_settings = array(
                 'font' => array(
                     'color' => '#fff',
                     'panel' => true,
@@ -86,12 +86,17 @@ class ds_site_message{
                     )
                 )
             );
-            update_option('dssm-settings', $default_settings);
+            update_option('dssm-design', $default_settings);
         }
     }
     
     function deactivate(){
         
+    }
+    
+    // Update Database settings if versions differ.
+    function update_settings(){
+        if(DSSM_VERSION !== get_option('dssm-version')) $this->activate();
     }
 }
 add_action('init', array($dssm, 'startup'));
@@ -99,4 +104,5 @@ add_action('init', array($dssm, 'startup'));
 /* ================== ACTIVATION / DEACTIVATION ================== */
 register_activation_hook(__FILE__, array($dssm, 'activate'));
 register_deactivation_hook(__FILE__, array($dssm, 'deactivate'));
+add_action('plugins_loaded', array($dssm, 'update_settings'));
 /* ================== ACTIVATION / DEACTIVATION END ================== */

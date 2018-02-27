@@ -20,7 +20,7 @@
         <h2 class="pt-0 pb-0"></h2><!-- WP Notices render after the first <h2> tag in class="wrap" -->
         <h2 class="nav-tab-wrapper">
             <?php foreach($tabs as $tab){ ?>
-                <a href="?page=dssm-content&tab=<?php echo $tab; ?>" class="nav-tab<?php echo ($tab == $active_tab ? ' nav-tab-active' : ''); ?>"><?php echo ucfirst($tab); ?></a>
+                <a href="?page=dssm-settings&tab=<?php echo $tab; ?>" class="nav-tab<?php echo ($tab == $active_tab ? ' nav-tab-active' : ''); ?>"><?php echo ucfirst($tab); ?></a>
             <?php } ?>
                 <a href="<?php echo home_url() . '?dssm-preview'; ?>" class="nav-tab" target="_blank"><?php _e('Live Preview'); ?></a>
         </h2>
@@ -150,7 +150,7 @@
                             <label class="ds-block-title pt-2 pr-2 pb-2 pl-2">
                                 <h2 class="mt-0 mb-0">
                                     <span class="dashicons dashicons-admin-customizer"></span>
-                                    <?php _e('Styling: Font'); ?>
+                                    <?php _e('Font'); ?>
                                 </h2>
                             </label>
                             <div class="pt-2 pr-2 pb-2 pl-2">
@@ -198,7 +198,7 @@
                             <label class="ds-block-title pt-2 pr-2 pb-2 pl-2">
                                 <h2 class="mt-0 mb-0">
                                     <span class="dashicons dashicons-admin-customizer"></span>
-                                    <?php _e('Styling: Background'); ?>
+                                    <?php _e('Background'); ?>
                                 </h2>
                             </label>
                             <div class="pt-2 pr-2 pb-2 pl-2">
@@ -236,7 +236,7 @@
                             <label class="ds-block-title pt-2 pr-2 pb-2 pl-2">
                                 <h2 class="mt-0 mb-0">
                                     <span class="dashicons dashicons-carrot"></span>
-                                    <?php _e('Styling: Custom'); ?>
+                                    <?php _e('Custom'); ?>
                                 </h2>
                             </label>
                             <div class="pt-2 pr-2 pb-2 pl-2">

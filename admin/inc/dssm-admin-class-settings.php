@@ -9,8 +9,8 @@ class dssm_admin_settings_handler{
     
     // Update Settings to DB.
     function settings_update(){
-        register_setting('dssm-settings', 'dssm-settings');
-        register_setting('dssm-settings', 'dssm-sections');
+        register_setting('dssm-content', 'dssm-content');
+        register_setting('dssm-design', 'dssm-design');
     }
     
     // display custom admin notices.
