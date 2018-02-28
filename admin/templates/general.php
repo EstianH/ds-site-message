@@ -32,7 +32,7 @@
                         </h2>
                     </label>
                     <div class="pt-2 pr-2 pb-2 pl-2">
-                        <p>Please open a ticket on divSpot by filling in the <a href="<?php echo DS_URL; ?>/support" target="_blank">support form</a>.</p>
+                        <p>Please open a ticket on divSpot by filling in the <a href="<?php echo DIVSPOT_URL; ?>/support" target="_blank">support form</a>.</p>
                     </div>
                 </div>
                 <div class="ds-block ds-col ds-col-6 mt-2">
@@ -43,7 +43,7 @@
                         </h2>
                     </label>
                     <div class="pt-2 pr-2 pb-2 pl-2">
-                        Thank you for using divSpot. If you like my plugins please support me by<br /><a href="#" target="_blank">submitting a review</a>.
+                        Thank you for using divSpot. If you like my plugins please support me by<br /><a href="https://wordpress.org/plugins/ds-site-message/#reviews" target="_blank">submitting a review</a>.
                     </div>
                 </div>
             </div>
