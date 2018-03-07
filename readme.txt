@@ -18,12 +18,25 @@ Donate link: https://www.divspot.co.za
 DS Site Message (DSSM) adds to WordPress a beautiful Maintenance, Coming Soon or Global Message page.
 Simply activate DSSM from the settings page in the administrator panel.
 
+= Features =
+* Redirects non-admin website visitors to a maintenance or coming soon page.
+* Displays a message to administrators when DSSM is enabled.
+* Enable or disable temporarily unavailable headers.
+* Includes a logo, title and message.
+* Includes social media.
+* Customizable text and background.
+* Add custom css.
+* Live preview.
+
 == Installation ==
 1. Log in to your WordPress administrator account and Navigate to 'Plugins -> Add New'.
 2. Input "DS Site Message" in the top right hand side search bar.
 3. Click on the "Install Now" button for DSSM.
 
 == Upgrade Notice ==
+= 1.11 =
+* Bug fix: Custom background images not saving in the administration panel.
+
 = 1.1 =
 * Modified the DSSM administrator panel.
 
