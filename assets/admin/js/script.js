@@ -57,8 +57,8 @@ jQuery(document).ready(function(){
 
                 var html = '<label id="custom-' + custom_add + '" class="image-radio ds-col ds-col-4 custom">';
                     html += '<div class="remove">X</div>'
-                    html += '<input name="dssm-settings[background][images][custom][' + custom_add + '][name]" type="hidden" value="' + json.title.replace(/\s+/g, '-').toLowerCase() + '" />'
-                    html += '<input name="dssm-settings[background][images][custom][' + custom_add + '][url]" type="hidden" value="' + json.url + '" />'
+                    html += '<input name="dssm-design[background][images][custom][' + custom_add + '][name]" type="hidden" value="' + json.title.replace(/\s+/g, '-').toLowerCase() + '" />'
+                    html += '<input name="dssm-design[background][images][custom][' + custom_add + '][url]" type="hidden" value="' + json.url + '" />'
                     html += '<input type="radio" value="' + json.url + '" />'
                     html += '<img width="100%" height="auto" src="' + json.url + '" />';
                 html += '</label>';
