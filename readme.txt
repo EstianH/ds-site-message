@@ -8,8 +8,8 @@ Author: Estian Hough
 Requires PHP: 5.6
 Requires at least: 4.9.4
 Tested up to: 4.9.4
-Stable tag: 1.1
-Version: 1.1
+Stable tag: 1.11
+Version: 1.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.divspot.co.za
@@ -36,6 +36,9 @@ Initial release.
 3. DSSM example page.
 
 == Changelog ==
+= 1.11 =
+* Bug fix: Custom background images not saving in the administration panel.
+
 = 1.1 =
 * Divided administrator settings into "Content" and "Design" tabs.
 * Administrator block titles background color changed from #515151 to #f9f9f9.
@@ -52,5 +55,3 @@ You can choose whether or not you want to include temporarily unavailable header
 
 = Is maintenance mode active when I activate DSSM? =
 No. To activate DSSM navigate to the DSSM settings page and check the "Enabled" setting.
-
-== Donations ==
