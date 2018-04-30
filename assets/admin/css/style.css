@@ -2,16 +2,16 @@
 #ds-wrapper .ds-block > .ds-block-title{ position: relative; z-index: 9;}
 #ds-wrapper .ds-block > .ds-block-title + div{ width: 100%; transition: opacity 0.4s ease-in-out; }
 
-#ds-wrapper #logo > div,
-#ds-wrapper #logo.loaded > #logo-add,
-#ds-wrapper #logo > #logo-remove{ display: none; }
-#ds-wrapper #logo > div{
+#ds-wrapper .ds-image-load > div,
+#ds-wrapper .ds-image-load.loaded > .ds-image-add,
+#ds-wrapper .ds-image-load > .ds-image-remove{ display: none; }
+#ds-wrapper .ds-image-load > div{
     max-width: 200px;
     max-height: 200px;
 }
-#ds-wrapper #logo img{ max-width: 100%; height: auto; }
-#ds-wrapper #logo.loaded > div,
-#ds-wrapper #logo.loaded > #logo-remove{ display: block; }
+#ds-wrapper .ds-image-load img{ width: auto; max-width: 100%; height: auto; }
+#ds-wrapper .ds-image-load.loaded > div,
+#ds-wrapper .ds-image-load.loaded > .ds-image-remove{ display: block; }
 
 #ds-wrapper input[type="checkbox"]{ margin: 0; }
 #ds-wrapper .image-radio{ height: 150px; background: #efefef; overflow: hidden; margin-bottom: 2%; position: relative; }

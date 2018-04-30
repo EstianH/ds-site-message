@@ -34,6 +34,11 @@ Simply activate DSSM from the settings page in the administrator panel.
 3. Click on the "Install Now" button for DSSM.
 
 == Upgrade Notice ==
+= 1.12 =
+* Bug fix: Meta URI Updated.
+* Settings: Added a setting for Google Analytics.
+* Settings: Added a setting for a favicon.
+
 = 1.11 =
 * Bug fix: Custom background images not saving in the administration panel.
 

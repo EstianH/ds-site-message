@@ -35,4 +35,14 @@ jQuery(document).ready(function(){
         });
     }
     /* ============= EQUAL HEIGHT END ============= */
+    /* ============= TABS ============= */
+    $(document).on('click', '#ds-wrapper .ds-nav-no-load', function(e){
+        e.preventDefault();
+        
+        $('#ds-wrapper .nav-tab').removeClass('nav-tab-active');
+        $(this).addClass('nav-tab-active');
+        $('#ds-wrapper .tab-content').removeClass('active');
+        $($(this).attr('href')).addClass('active');
+    });
+    /* ============= TABS END ============= */
 });

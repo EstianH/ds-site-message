@@ -1,14 +1,15 @@
 <?php if(!defined('ABSPATH')) exit; ?>
+<?php $dssm_content = get_option('dssm-content'); ?>
+<?php $dssm_design = get_option('dssm-design'); ?>
 <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <!-- DS Site message prevents WP from loading beyond action 'init'. Manual Stylesheet linking required. -->
+        <link rel="icon" type="image/png" href="<?php echo (isset($dssm_content['text']['favicon']) && $dssm_content['text']['favicon'] ? $dssm_content['text']['favicon'] : DSSM_ASSETS . 'images/icon-xs.png'); ?>" />
         <link type="text/css" href="<?php echo DSSM_ASSETS . 'css/style.css?v=' . DSSM_VERSION; ?>" rel="stylesheet" />
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <?php $dssm_content = get_option('dssm-content'); ?>
-        <?php $dssm_design = get_option('dssm-design'); ?>
         <style type="text/css">
             body{
                 <?php echo (isset($dssm_design['background']['color']) && $dssm_design['background']['color'] ? 'background-color: ' . $dssm_design['background']['color'] . ';' : ''); ?>
@@ -34,6 +35,11 @@
         </style>
     </head>
     <body>
+        <?php if(isset($dssm_content['insert'])){
+            foreach($dssm_content['insert'] as $insert){
+                echo $insert;
+            }
+        } ?>
         <div id="main-container">
             <div id="message" class="<?php echo (isset($dssm_design['font']['align']) ? $dssm_design['font']['align'] : ''); ?>">
                 <div id="message-heading">

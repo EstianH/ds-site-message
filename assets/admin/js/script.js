@@ -1,15 +1,4 @@
 jQuery(document).ready(function(){
-    /* ============= LOGO ============= */
-    jQuery(document).on('click', '#logo-add', function(){
-        open_media('logo');
-    });
-    
-    jQuery(document).on('click', '#logo-remove', function(){
-        jQuery('#logo').removeClass('loaded');
-        jQuery('#logo input').val('');
-        jQuery('#logo img').prop('src', '');
-    });
-    /* ============= LOGO END ============= */
     /* ============= IMAGES ============= */
     jQuery(document).on('click', '#image-add', function(){
         open_media('background');
@@ -35,9 +24,22 @@ jQuery(document).ready(function(){
     });
     /* ============= IMAGES END ============= */
     /* ============= MEDIA UPLOADER ============= */
+    jQuery(document).on('click', '.ds-image-add', function(){
+        open_media('ds-image-load', jQuery(this).closest('.ds-image-load'));
+    });
+    
+    jQuery(document).on('click', '.ds-image-remove', function(){
+        var parent = jQuery(this).closest('.ds-image-load');
+        parent.removeClass('loaded');
+        parent.find('input').val('');
+        parent.find('img').prop('src', '');
+    });
+    
     var media_uploader = null;
 
-    function open_media(type){
+    function open_media(type, parent){
+        parent = parent || '';
+        
         media_uploader = wp.media({
             frame: "post", 
             state: "insert", 
@@ -64,13 +66,13 @@ jQuery(document).ready(function(){
                 html += '</label>';
 
                 jQuery('#image-add').before(html);
-            } else if(type == 'logo'){
-                if(!jQuery('#logo').hasClass('loaded')){
-                    jQuery('#logo').addClass('loaded');
+            } else if(type == 'ds-image-load'){
+                if(!parent.hasClass('loaded')){
+                    parent.addClass('loaded');
                 }
                 
-                jQuery('#logo input').val(json.url);
-                jQuery('#logo img').prop('src', json.url);
+                parent.find('input').val(json.url);
+                parent.find('img').prop('src', json.url);
             }
         });
 

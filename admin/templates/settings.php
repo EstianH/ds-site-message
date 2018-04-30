@@ -1,6 +1,6 @@
 <?php if(!defined('ABSPATH')) exit; ?>
 <?php $tabs = array('content', 'design'); ?>
-<?php $active_tab = (isset($_GET['tab']) ? $_GET['tab'] : 'content'); ?>
+<?php $active_tab = (isset($_GET['tab']) ? $_GET['tab'] : $tabs[0]); ?>
 <?php $dssm_content = get_option('dssm-content'); ?>
 <?php $dssm_design = get_option('dssm-design'); ?>
 <?php $aligns = array('left' => 'textleft', 'center' => 'textcenter', 'right' => 'textright'); ?>
@@ -20,7 +20,7 @@
         <h2 class="pt-0 pb-0"></h2><!-- WP Notices render after the first <h2> tag in class="wrap" -->
         <h2 class="nav-tab-wrapper">
             <?php foreach($tabs as $tab){ ?>
-                <a href="?page=dssm-settings&tab=<?php echo $tab; ?>" class="nav-tab<?php echo ($tab == $active_tab ? ' nav-tab-active' : ''); ?>"><?php echo ucfirst($tab); ?></a>
+                <a href="?page=dssm-settings&tab=<?php echo $tab; ?>" class="nav-tab<?php echo ($tab == $active_tab ? ' nav-tab-active' : ''); ?> ds-nav"><?php echo ucfirst($tab); ?></a>
             <?php } ?>
                 <a href="<?php echo home_url() . '?dssm-preview'; ?>" class="nav-tab" target="_blank"><?php _e('Live Preview'); ?></a>
         </h2>
@@ -76,13 +76,24 @@
                                 </div>
                                 <div class="ds-row clearfix pt-1 pb-1 border-bottom border-grey">
                                     <label class="ds-col ds-col-3 ds-2col"><?php _e('Logo'); ?>:</label>
-                                    <div id="logo" class="ds-col ds-col-9 ds-2col<?php echo (isset($dssm_content['text']['logo']) && $dssm_content['text']['logo'] ? ' loaded' : ''); ?>">
+                                    <div id="logo" class="ds-col ds-col-9 ds-2col ds-image-load<?php echo (isset($dssm_content['text']['logo']) && $dssm_content['text']['logo'] ? ' loaded' : ''); ?>">
                                         <div>
                                             <input name="dssm-content[text][logo]" type="hidden" value="<?php echo (isset($dssm_content['text']['logo']) && $dssm_content['text']['logo'] ? $dssm_content['text']['logo'] : ''); ?>" />
                                             <img width="100%" height="auto" src="<?php echo (isset($dssm_content['text']['logo']) && $dssm_content['text']['logo'] ? $dssm_content['text']['logo'] : ''); ?>" />
                                         </div>
-                                        <button id="logo-add" class="button button-primary" type="button"><?php _e('Add logo'); ?></button>
-                                        <button id="logo-remove" class="button button-secondary" type="button"><?php _e('Remove logo'); ?></button>
+                                        <button id="logo-add" class="button button-primary ds-image-add" type="button"><?php _e('Add logo'); ?></button>
+                                        <button id="logo-remove" class="button button-secondary ds-image-remove" type="button"><?php _e('Remove Logo'); ?></button>
+                                    </div>
+                                </div>
+                                <div class="ds-row clearfix pt-1 pb-1 border-bottom border-grey">
+                                    <label class="ds-col ds-col-3 ds-2col"><?php _e('Favicon'); ?>:</label>
+                                    <div id="favicon" class="ds-col ds-col-9 ds-2col ds-image-load<?php echo (isset($dssm_content['text']['favicon']) && $dssm_content['text']['favicon'] ? ' loaded' : ''); ?>">
+                                        <div>
+                                            <input name="dssm-content[text][favicon]" type="hidden" value="<?php echo (isset($dssm_content['text']['favicon']) && $dssm_content['text']['favicon'] ? $dssm_content['text']['favicon'] : ''); ?>" />
+                                            <img width="100%" height="auto" src="<?php echo (isset($dssm_content['text']['favicon']) && $dssm_content['text']['favicon'] ? $dssm_content['text']['favicon'] : ''); ?>" />
+                                        </div>
+                                        <button id="favicon-add" class="button button-primary ds-image-add" type="button"><?php _e('Add Favicon'); ?></button>
+                                        <button id="favicon-remove" class="button button-secondary ds-image-remove" type="button"><?php _e('Remove Favicon'); ?></button>
                                     </div>
                                 </div>
                                 <div class="ds-row clearfix pt-1">
@@ -129,6 +140,24 @@
                                     <div class="ds-col ds-col-9 ds-2col">
                                         <input class="ds-col-12" name="dssm-content[social][email][url]" type="text" value="<?php echo (isset($dssm_content['social']['email']['url']) && $dssm_content['social']['email']['url'] ? $dssm_content['social']['email']['url'] : ''); ?>" placeholder="Leave empty to exclude" />
                                         <input class="ds-col-12" name="dssm-content[social][email][icon]" type="hidden" value="fas fa-envelope" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ds-row clearfix">
+                        <div class="ds-block ds-col ds-col-12 mt-1">
+                            <label class="ds-block-title pt-2 pr-2 pb-2 pl-2">
+                                <h2 class="mt-0 mb-0">
+                                    <span class="dashicons dashicons-analytics"></span>
+                                    <?php _e('Analytics'); ?>
+                                </h2>
+                            </label>
+                            <div class="pt-2 pr-2 pb-2 pl-2">
+                                <div class="ds-row clearfix">
+                                    <label class="ds-col ds-col-3 ds-2col"><?php _e('Google Analytics'); ?>:</label>
+                                    <div class="ds-col ds-col-9">
+                                        <textarea name="dssm-content[insert][analytics]" class="ds-col-12" rows="8"><?php echo (isset($dssm_content['insert']['analytics']) ? $dssm_content['insert']['analytics'] : ''); ?></textarea>
                                     </div>
                                 </div>
                             </div>
