@@ -36,7 +36,7 @@ jQuery(document).ready(function(){
     }
     /* ============= EQUAL HEIGHT END ============= */
     /* ============= TABS ============= */
-    $(document).on('click', '#ds-wrapper .ds-nav-no-load', function(e){
+    $(document).on('click', '#ds-wrapper .nav-tab:not(.nav-tab-link)', function(e){
         e.preventDefault();
         
         $('#ds-wrapper .nav-tab').removeClass('nav-tab-active');
