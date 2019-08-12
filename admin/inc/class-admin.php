@@ -57,12 +57,13 @@ class DS_SITE_MESSAGE_ADMIN {
 				return;
 
 			// Enqueue only on the appropriate page.
-			wp_enqueue_script ( 'dssm-script', DSSM_ASSETS . 'js/script.js', array( 'jquery-core' ), DSSM_VERSION );
+			wp_enqueue_script ( 'dssm-script', DSSM_ASSETS . 'js/script-admin.js',  array( 'jquery-core' ), DSSM_VERSION );
+			wp_enqueue_style  (  'dssm-style', DSSM_ASSETS . 'css/style-admin.css', array(), DSSM_VERSION );
 			wp_enqueue_media(); // WP Media
 
-			// Enqueue DS Core assets.
-			wp_enqueue_style  ( 'dsc-style',  DSSM_ASSETS . 'vendors/ds-core/css/style.css', array(), DSSM_VERSION );
-			wp_enqueue_script ( 'dsc-script', DSSM_ASSETS . 'vendors/ds-core/js/script.js',	array( 'jquery-core' ), DSSM_VERSION );
+			// Enqueue vendor assets.
+			wp_enqueue_script ( 'dsc-script', DSSM_ASSETS . 'vendors/ds-core/js/script.js',  array( 'jquery-core' ), DSSM_VERSION );
+			wp_enqueue_style  (  'dsc-style', DSSM_ASSETS . 'vendors/ds-core/css/style.css', array(), DSSM_VERSION );
 		} );
 
 		// Filters
@@ -75,7 +76,7 @@ class DS_SITE_MESSAGE_ADMIN {
 		add_action( 'admin_notices', array( $this, 'add_notices' ) );
 
 		// Version check settings.
-		$this->update_settings();
+		$this->update_settings_maybe();
 	}
 
 	/**
@@ -130,7 +131,7 @@ class DS_SITE_MESSAGE_ADMIN {
 	 *
 	 * @access public
 	 */
-	public function update_settings() {
+	public function update_settings_maybe() {
 		if( version_compare( get_option( 'dssm_version' ), DSSM_VERSION, '<' ) )
 			$this->activate();
 	}
@@ -155,10 +156,10 @@ class DS_SITE_MESSAGE_ADMIN {
 	 * @access public
 	 */
 	public function add_notices() {
-		if( 'toplevel_page_' . DSSM_SLUG === get_current_screen()->id )
-			if( !empty( $_GET['settings-updated'] ) )
+		if ( 'toplevel_page_' . DSSM_SLUG === get_current_screen()->id )
+			if ( !empty( $_GET['settings-updated'] ) )
 				echo '<div class="notice notice-success is-dismissible ds-mt-2 ds-mr-0 ds-mb-2 ds-ml-0">
-					<p>' . _e( 'Settings saved.', DSSM_SLUG ) . '</p>
+					<p>' . __( 'Settings saved.', DSSM_SLUG ) . '</p>
 				</div>';
 	}
 }

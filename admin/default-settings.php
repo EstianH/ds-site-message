@@ -12,10 +12,7 @@ $default_settings = array(
 			'pos' => 'margin-left: auto'
 		),
 		'background' => array(
-			'image' => array(
-				'name' => 'coffee',
-				'url' => DSSM_ASSETS . 'images/coffee.jpg',
-			),
+			'image_active' => 'coffee',
 			'images' => array(
 				'default' => array(
 					array( 'name' => 'lights',  'url' => DSSM_ASSETS . 'images/lights.jpg' ),

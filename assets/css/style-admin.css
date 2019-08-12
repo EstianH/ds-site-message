@@ -1,0 +1,35 @@
+.ds-image-load.loaded .ds-image-add {
+  display: none; }
+.ds-image-load:not(.loaded) .ds-image-remove {
+  display: none; }
+.ds-image-load img {
+  background: #f9f9f9;
+  padding: 5px; }
+
+#background-image-picker > .ds-radio-image > .remove {
+  position: absolute;
+  border-radius: 0 0 0 5px;
+  top: 0;
+  right: 7.5px;
+  padding: 1px 6px;
+  background: #515151;
+  color: #fff;
+  font-weight: bold;
+  z-index: 1; }
+
+#background-image-add {
+  transition: opacity 0.4s;
+  background: transparent;
+  border: 2px solid #efefef;
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #515151;
+  opacity: 0.5;
+  cursor: pointer; }
+  #background-image-add:hover {
+    opacity: 1; }
+
+/*# sourceMappingURL=style-admin.css.map */
