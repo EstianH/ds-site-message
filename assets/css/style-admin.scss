@@ -16,6 +16,7 @@ $black: #000;
 $ds-font-size: 16px;
 $ds-line-height: 18px;
 
+// Logo & Favicon.
 .ds-image-load {
 	&.loaded {
 		.ds-image-add {
@@ -30,11 +31,14 @@ $ds-line-height: 18px;
 	}
 
 	img {
-		background: $ds-grey-light;
+		background: $ds-grey;
 		padding: 5px;
+		min-width: 100%;
+		min-height: 30px;
 	}
 }
 
+// Background images.
 #background-image-picker {
 	> .ds-radio-image {
 		> .remove {
@@ -66,6 +70,29 @@ $ds-line-height: 18px;
 
 	&:hover {
 		opacity: 1;
+	}
+}
+
+// WP Color Picker.
+.wp-picker-container {
+	input {
+		height: 30px !important;
+		line-height: 28px !important;
+		background-color: $ds-grey-light !important;
+		box-shadow: none !important;
+		border-radius: 0 !important;
+	}
+
+	> .wp-color-result.button {
+		height: 30px !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+
+		> .wp-color-result-text,
+		> .color-alpha {
+			height: 28px !important;
+			line-height: 28px !important;
+		}
 	}
 }
 

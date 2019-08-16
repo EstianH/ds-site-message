@@ -3,8 +3,10 @@
 .ds-image-load:not(.loaded) .ds-image-remove {
   display: none; }
 .ds-image-load img {
-  background: #f9f9f9;
-  padding: 5px; }
+  background: #efefef;
+  padding: 5px;
+  min-width: 100%;
+  min-height: 30px; }
 
 #background-image-picker > .ds-radio-image > .remove {
   position: absolute;
@@ -31,5 +33,20 @@
   cursor: pointer; }
   #background-image-add:hover {
     opacity: 1; }
+
+.wp-picker-container input {
+  height: 30px !important;
+  line-height: 28px !important;
+  background-color: #f9f9f9 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important; }
+.wp-picker-container > .wp-color-result.button {
+  height: 30px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important; }
+  .wp-picker-container > .wp-color-result.button > .wp-color-result-text,
+  .wp-picker-container > .wp-color-result.button > .color-alpha {
+    height: 28px !important;
+    line-height: 28px !important; }
 
 /*# sourceMappingURL=style-admin.css.map */

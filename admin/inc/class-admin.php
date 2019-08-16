@@ -20,13 +20,6 @@ class DS_SITE_MESSAGE_ADMIN {
 	private static $instance;
 
 	/**
-	 * Saved settings.
-	 *
-	 * @access public
-	 */
-	public $settings;
-
-	/**
 	 * Returns the instance of the class.
 	 *
 	 * @access public
@@ -46,20 +39,27 @@ class DS_SITE_MESSAGE_ADMIN {
 	 * @access private
 	 */
 	private function __construct() {
-		$this->settings = get_option( 'dssm_settings' );
-
 		// Register the admin settings page.
 		add_action( 'admin_menu', array( $this, 'render_admin_menu' ) );
 
 		// Enqueue admin assets.
 		add_action( 'admin_enqueue_scripts', function( $hook ) {
-			if( 'toplevel_page_' . DSSM_SLUG !== $hook )
+			if( 'toplevel_page_' . DSSM_SLUG !== $hook ) // Enqueue only on the appropriate page.
 				return;
 
-			// Enqueue only on the appropriate page.
-			wp_enqueue_script ( 'dssm-script', DSSM_ASSETS . 'js/script-admin.js',  array( 'jquery-core' ), DSSM_VERSION );
-			wp_enqueue_style  (  'dssm-style', DSSM_ASSETS . 'css/style-admin.css', array(), DSSM_VERSION );
+			// WP Assets.
 			wp_enqueue_media(); // WP Media
+			wp_enqueue_style  ( 'wp-color-picker' ); // WP Color Picker
+			wp_enqueue_script (
+				'wp-color-picker-alpha',
+				DSSM_ASSETS . 'vendors/wp-color-picker-alpha/wp-color-picker-alpha.min.js',
+				array( 'wp-color-picker' ),
+				DSSM_VERSION
+			); // Overriden/Extended WP Color Picker
+
+			// Plugin Assets.
+			wp_enqueue_script ( 'dssm-script', DSSM_ASSETS . 'js/script-admin.js',  array( 'jquery-core', 'wp-color-picker-alpha' ), DSSM_VERSION );
+			wp_enqueue_style  ( 'dssm-style',  DSSM_ASSETS . 'css/style-admin.css', array(), DSSM_VERSION );
 
 			// Enqueue vendor assets.
 			wp_enqueue_script ( 'dsc-script', DSSM_ASSETS . 'vendors/ds-core/js/script.js',  array( 'jquery-core' ), DSSM_VERSION );
@@ -132,7 +132,7 @@ class DS_SITE_MESSAGE_ADMIN {
 	 * @access public
 	 */
 	public function update_settings_maybe() {
-		if( version_compare( get_option( 'dssm_version' ), DSSM_VERSION, '<' ) )
+		if ( version_compare( get_option( 'dssm_version' ), DSSM_VERSION, '<' ) )
 			$this->activate();
 	}
 

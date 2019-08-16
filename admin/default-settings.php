@@ -2,14 +2,15 @@
 $default_settings = array(
 	'content' => array(
 		'heading' => get_bloginfo(),
-		'body' => 'We are currently undergoing maintenance.<br />Please check back in 10 minutes.',
+		'body'    => 'We are currently undergoing maintenance.<br />Please check back in 10 minutes.',
 	),
 	'design' => array(
 		'font' => array(
-			'color' => '#fff',
-			'panel' => true,
-			'align' => 'textcenter',
-			'pos' => 'margin-left: auto'
+			'color'      => '#fff',
+			'panel'      => true,
+			'panelcolor' => 'rgba( 0, 0, 0, 0.7 )',
+			'align'      => 'textcenter',
+			'pos'        => 'margin-left: auto'
 		),
 		'background' => array(
 			'image_active' => 'coffee',
