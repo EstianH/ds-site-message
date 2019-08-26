@@ -64,6 +64,15 @@ Initial release.
 3. DSSM example page.
 
 == Changelog ==
+= 1.13 =
+* Admin: Settings pages merged into a single page with tabbed navigation.
+* Admin: Legacy (unused) settings cleaned from DB.
+* Admin: Color picker added.
+* Admin: Interface updated.
+* Admin: DS Core merged in.
+* Admin: Font stylisation options added.
+* Global: Plugin code rewritten for better efficiency and maintainability.
+
 = 1.12 =
 * Bug fix: Meta URI Updated.
 * Settings: Added a setting for Google Analytics.
