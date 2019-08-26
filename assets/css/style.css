@@ -4,4 +4,119 @@
   font-family: ubuntu;
   font-weight: 400; }
 
+html body {
+  margin: 0; }
+
+h1 {
+  font-family: inherit;
+  font-size: 35px;
+  line-height: 35px;
+  margin: 0 0 30px; }
+
+a,
+p {
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0;
+  text-decoration: none; }
+
+#logo {
+  margin: 0 0 30px; }
+
+#main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 30px; }
+
+#message-socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 0; }
+  #message-socials > .social-icon {
+    transition: all 0.4s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid;
+    border-radius: 50%; }
+    #message-socials > .social-icon:not(:last-child) {
+      margin-right: 10px; }
+    #message-socials > .social-icon:hover {
+      background-color: #fff;
+      border-color: #fff;
+      color: #515151; }
+    #message-socials > .social-icon.facebook:hover {
+      background-color: #3C5A99;
+      border-color: #3C5A99;
+      color: #fff; }
+    #message-socials > .social-icon.twitter:hover {
+      background-color: #1DA1F2;
+      border-color: #1DA1F2;
+      color: #fff; }
+    #message-socials > .social-icon.instagram:hover {
+      background-color: #E1306C;
+      border-color: #E1306C;
+      color: #fff; }
+    #message-socials > .social-icon.email:hover {
+      background-color: #515151;
+      border-color: #515151;
+      color: #fff; }
+
+@media (min-width: 576px) {
+  h1 {
+    font-size: 40px;
+    line-height: 40px; }
+
+  p {
+    font-size: 16px; } }
+@media (min-width: 768px) {
+  h1 {
+    font-size: 60px;
+    line-height: 50px; }
+
+  #main-container {
+    max-width: 350px; } }
+@media (min-width: 992px) {
+  h1 {
+    font-size: 80px;
+    line-height: 70px; }
+
+  p {
+    font-size: 22px;
+    line-height: 30px; }
+
+  #main-container {
+    max-width: 500px;
+    padding: 70px; } }
+@media (min-width: 1200px) {
+  #main-container {
+    max-width: 650px; } }
+@media (min-width: 1680px) {
+  #main-container {
+    max-width: 35%; } }
+
 /*# sourceMappingURL=style.css.map */

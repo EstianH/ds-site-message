@@ -8,7 +8,7 @@
 		bottom: 0;
 		z-index: 999999;
 		max-width: 400px;
-		padding: 15px 30px;
+		padding: 15px 20px;
 		background: #fff;
 		-webkit-box-shadow: 0px 0px 20px -2px rgba( 0, 0, 0, 0.15 );
 		-moz-box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.15 );
@@ -60,6 +60,6 @@
 <div id="dssm-admin-notice-container">
 		<h2><?php echo _e( 'MAINTENANCE MODE', DSSM_SLUG ); ?></h2>
 		<span class="close" onclick="jQuery( this ).parent( '#dssm-admin-notice-container' ).fadeOut( function() { jQuery( this ).remove(); } );">&times;</span>
-		<span><?php _e( 'Your Site Message is currently active. As an administrator you have full access to your website while in this mode.', DSSM_SLUG ); ?></span>
+		<span><?php _e( 'Your website is currently in maintenance mode.', DSSM_SLUG ); ?></span>
 		<a href="<?php echo get_home_url(); ?>?dssm-preview=true" target="_blank"><?php _e( 'Preview', DSSM_SLUG ); ?></a>
 </div>

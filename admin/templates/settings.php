@@ -6,18 +6,18 @@ $tabs = array( 'content', 'design' );
 $active_tab = ( !empty( $_GET['tab'] ) ? $_GET['tab'] : $tabs[0] );
 
 $aligns = array(
-	'left'   => 'textleft',
-	'center' => 'textcenter',
-	'right'  => 'textright'
+	'left'   => 'left',
+	'center' => 'center',
+	'right'  => 'right'
 );
 
 $positions = array(
-	'left'       => 'margin-right: auto',
-	'full-width' => 'max-width: 100%',
-	'right'      => 'margin-left: auto'
+	'left'       => 'left',
+	'full-width' => 'full-width',
+	'right'      => 'right'
 );
 
-$editor = array(
+$editor_content_body = array(
 	'content'         => ( !empty( $dssm->settings['content']['body'] ) ? $dssm->settings['content']['body'] : '' ),
 	'editor_id'       => 'dssmsettingsbody',
 	'arguments'       => array(
@@ -194,7 +194,7 @@ $editor = array(
 															<?php _e( 'Add logo', DSSM_SLUG ); ?>
 														</button>
 														<button class="button button-secondary ds-image-remove" type="button">
-															<?php _e( 'Remove Logo', DSSM_SLUG ); ?>
+															<?php _e( 'Remove logo', DSSM_SLUG ); ?>
 														</button>
 													</div>
 												</div><!-- .ds-col -->
@@ -232,7 +232,7 @@ $editor = array(
 													<?php _e( 'Body', DSSM_SLUG ); ?>:
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
-													<?php wp_editor( $editor['content'], $editor['editor_id'], $editor['arguments'] ); ?>
+													<?php wp_editor( $editor_content_body['content'], $editor_content_body['editor_id'], $editor_content_body['arguments'] ); ?>
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
 										</div><!-- .ds-block-body -->
@@ -323,7 +323,7 @@ $editor = array(
 													<input
 														name="dssm_settings[content][social][email][icon]"
 														type="hidden"
-														value="fab fa-envelope" />
+														value="far fa-envelope" />
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
 										</div><!-- .ds-block-body -->
@@ -351,7 +351,7 @@ $editor = array(
 										<div class="ds-block-body">
 											<div class="ds-row ds-ml-auto ds-mr-auto">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
-													<?php _e( 'Google Analytics', DSSM_SLUG ); ?>:
+													<?php _e( 'Google analytics', DSSM_SLUG ); ?>:
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
 													<textarea
@@ -403,6 +403,76 @@ $editor = array(
 											</h2>
 										</div>
 										<div class="ds-block-body">
+											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
+												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
+													<?php _e( 'Google font family', DSSM_SLUG ); ?>:
+													<br /><small>(Enter a Google font name)</small>
+												</div>
+												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
+													<input
+														class="ds-input-box"
+														name="dssm_settings[design][font][family]"
+														type="text"
+														value="<?php echo ( !empty( $dssm->settings['design']['font']['family'] ) ? $dssm->settings['design']['font']['family'] : ''); ?>"
+														placeholder="Montserrat" />
+												</div><!-- .ds-col -->
+											</div><!-- .ds-row -->
+											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
+												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
+													<?php _e( 'Heading font size', DSSM_SLUG ); ?>:
+													<br /><small>(ex: 80px)</small>
+												</div>
+												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
+													<input
+														class="ds-input-box"
+														name="dssm_settings[design][font][headingfontsize]"
+														type="text"
+														value="<?php echo ( !empty( $dssm->settings['design']['font']['headingfontsize'] ) ? $dssm->settings['design']['font']['headingfontsize'] : ''); ?>"
+														placeholder="80px" />
+												</div><!-- .ds-col -->
+											</div><!-- .ds-row -->
+											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
+												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
+													<?php _e( 'Heading line height', DSSM_SLUG ); ?>:
+													<br /><small>(ex: 70px)</small>
+												</div>
+												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
+													<input
+														class="ds-input-box"
+														name="dssm_settings[design][font][headinglineheight]"
+														type="text"
+														value="<?php echo ( !empty( $dssm->settings['design']['font']['headinglineheight'] ) ? $dssm->settings['design']['font']['headinglineheight'] : ''); ?>"
+														placeholder="70px" />
+												</div><!-- .ds-col -->
+											</div><!-- .ds-row -->
+											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
+												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
+													<?php _e( 'Message font size', DSSM_SLUG ); ?>:
+													<br /><small>(ex: 22px)</small>
+												</div>
+												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
+													<input
+														class="ds-input-box"
+														name="dssm_settings[design][font][messagefontsize]"
+														type="text"
+														value="<?php echo ( !empty( $dssm->settings['design']['font']['messagefontsize'] ) ? $dssm->settings['design']['font']['messagefontsize'] : ''); ?>"
+														placeholder="22px" />
+												</div><!-- .ds-col -->
+											</div><!-- .ds-row -->
+											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
+												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
+													<?php _e( 'Message line height', DSSM_SLUG ); ?>:
+													<br /><small>(ex: 30px)</small>
+												</div>
+												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
+													<input
+														class="ds-input-box"
+														name="dssm_settings[design][font][messagelineheight]"
+														type="text"
+														value="<?php echo ( !empty( $dssm->settings['design']['font']['messagelineheight'] ) ? $dssm->settings['design']['font']['messagelineheight'] : ''); ?>"
+														placeholder="30px" />
+												</div><!-- .ds-col -->
+											</div><!-- .ds-row -->
 											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
 													<?php _e( 'Color', DSSM_SLUG ); ?>:
@@ -518,10 +588,11 @@ $editor = array(
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
 													<input
-														class="ds-input-box"
+														class="wp-color-picker"
+														data-alpha="true"
 														name="dssm_settings[design][background][color]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['design']['background']['color'] ) ? $dssm->settings['design']['background']['color'] : ''); ?>"
+														value="<?php echo ( !empty( $dssm->settings['design']['background']['color'] ) ? $dssm->settings['design']['background']['color'] : '#fff'); ?>"
 														placeholder="#fff" />
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
@@ -551,7 +622,7 @@ $editor = array(
 															id="background-image-name"
 															name="dssm_settings[design][background][image_active]"
 															type="hidden"
-															value="<?php echo ( !empty( $dssm->settings['design']['background']['image_active'] ) ? $dssm->settings['design']['background']['image_active'] : ''); ?>" />
+															value="<?php echo ( !empty( $dssm->settings['design']['background']['image_active'] ) ? $dssm->settings['design']['background']['image_active'] : '' ); ?>" />
 														<div id="background-image-picker" class="ds-row">
 															<?php
 															$background_images = ( !empty( $dssm->settings['design']['background']['images'] ) ? $dssm->settings['design']['background']['images'] : array() );

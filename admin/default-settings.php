@@ -6,11 +6,12 @@ $default_settings = array(
 	),
 	'design' => array(
 		'font' => array(
+			'family'     => 'Montserrat',
 			'color'      => '#fff',
 			'panel'      => true,
 			'panelcolor' => 'rgba( 0, 0, 0, 0.7 )',
-			'align'      => 'textcenter',
-			'pos'        => 'margin-left: auto'
+			'align'      => 'center',
+			'pos'        => 'right'
 		),
 		'background' => array(
 			'image_active' => 'coffee',

@@ -39,6 +39,9 @@ class DS_SITE_MESSAGE_ADMIN {
 	 * @access private
 	 */
 	private function __construct() {
+		// Version check settings.
+		$this->update_settings_maybe();
+
 		// Register the admin settings page.
 		add_action( 'admin_menu', array( $this, 'render_admin_menu' ) );
 
@@ -58,8 +61,8 @@ class DS_SITE_MESSAGE_ADMIN {
 			); // Overriden/Extended WP Color Picker
 
 			// Plugin Assets.
-			wp_enqueue_script ( 'dssm-script', DSSM_ASSETS . 'js/script-admin.js',  array( 'jquery-core', 'wp-color-picker-alpha' ), DSSM_VERSION );
-			wp_enqueue_style  ( 'dssm-style',  DSSM_ASSETS . 'css/style-admin.css', array(), DSSM_VERSION );
+			wp_enqueue_script ( 'dssm-script', DSSM_ASSETS . 'admin/js/script.js',  array( 'jquery-core', 'wp-color-picker-alpha' ), DSSM_VERSION );
+			wp_enqueue_style  ( 'dssm-style',  DSSM_ASSETS . 'admin/css/style.css', array(), DSSM_VERSION );
 
 			// Enqueue vendor assets.
 			wp_enqueue_script ( 'dsc-script', DSSM_ASSETS . 'vendors/ds-core/js/script.js',  array( 'jquery-core' ), DSSM_VERSION );
@@ -74,9 +77,6 @@ class DS_SITE_MESSAGE_ADMIN {
 
 		// Register notifications.
 		add_action( 'admin_notices', array( $this, 'add_notices' ) );
-
-		// Version check settings.
-		$this->update_settings_maybe();
 	}
 
 	/**
@@ -109,12 +109,20 @@ class DS_SITE_MESSAGE_ADMIN {
 	 * @access public
 	 */
 	public function activate() {
+		$dssm = DS_SITE_MESSAGE::get_instance();
 		require_once DSSM_ROOT . 'admin/default-settings.php';
 
 		update_option( 'dssm_version', DSSM_VERSION );
 
-		if ( !get_option( 'dssm_settings' ) )
+		$db_settings = get_option( 'dssm_settings' );
+
+		if ( empty( $db_settings ) ) {
 			update_option( 'dssm_settings', $default_settings );
+			$db_settings = $default_settings;
+		}
+
+		// Refresh cached settings.
+		$dssm->settings = $db_settings;
 	}
 
 	/**

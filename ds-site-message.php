@@ -78,23 +78,14 @@ class DS_SITE_MESSAGE {
 	private function __construct() {
 		$this->settings = get_option( 'dssm_settings' );
 
-		if ( is_admin() ) {
-			require_once DSSM_ROOT . 'admin/inc/class-admin.php';
-			$dssm_admin = DS_SITE_MESSAGE_ADMIN::get_instance();
-		} else {
-			// Only activate on the front-end with an enabled status.
+		// Only activate front-end with an enabled or preview status.
+		if ( !is_admin() ) {
 			if (
-				(
-					!empty( $_GET['dssm-preview'] )
-					&& true === ( bool )$_GET['dssm-preview']
-				)
-				|| (
-					!empty( $this->settings['content']['enabled'] )
-					&& !current_user_can( 'edit_plugins' )
-				)
+				   ( !empty( $_GET['dssm-preview'] ) && true === ( bool )$_GET['dssm-preview'] )
+				|| ( !empty( $this->settings['content']['enabled'] ) && !current_user_can( 'edit_plugins' ) )
 			)
 				add_filter( 'template_include', array( $this, 'render_message_page' ), 99, 1 );
-			else if ( !empty( $this->settings['content']['enabled'] ) )
+			else if ( !empty( $this->settings['content']['enabled'] ) ) // Render a front-end maintenance notice message for administrators.
 				add_action( 'wp_footer', function() {
 					load_template( DSSM_ROOT . 'templates/admin-notice.php' );
 				} );
@@ -116,3 +107,16 @@ class DS_SITE_MESSAGE {
 }
 
 add_action( 'plugins_loaded', array( 'DS_SITE_MESSAGE', 'get_instance' ) );
+
+
+/*
+ █████  ██████  ███    ███ ██ ███    ██
+██   ██ ██   ██ ████  ████ ██ ████   ██
+███████ ██   ██ ██ ████ ██ ██ ██ ██  ██
+██   ██ ██   ██ ██  ██  ██ ██ ██  ██ ██
+██   ██ ██████  ██      ██ ██ ██   ████
+*/
+if ( is_admin() ) {
+	require_once DSSM_ROOT . 'admin/inc/class-admin.php';
+	add_action( 'plugins_loaded', array( 'DS_SITE_MESSAGE_ADMIN', 'get_instance' ) );
+}
