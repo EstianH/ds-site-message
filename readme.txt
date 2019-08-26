@@ -7,11 +7,11 @@ Author URI: https://www.divspot.co.za
 Author: Estian Hough
 Requires PHP: 5.6
 Requires at least: 4.9.4
-Tested up to: 4.9.4
-Stable tag: 1.12
-Version: 1.12
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 5.2.2
+Stable tag: 1.13
+Version: 1.13
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://www.divspot.co.za
 
 == Description ==
@@ -25,15 +25,25 @@ Simply activate DSSM from the settings page in the administrator panel.
 * Includes a logo, title and message.
 * Includes social media.
 * Customizable text and background.
-* Add custom css.
+* Custom css.
 * Live preview.
 
 == Installation ==
 1. Log in to your WordPress administrator account and Navigate to 'Plugins -> Add New'.
 2. Input "DS Site Message" in the top right hand side search bar.
 3. Click on the "Install Now" button for DSSM.
+4. Click on the "Activate" button for DSSM.
 
 == Upgrade Notice ==
+= 1.13 =
+* Admin: Settings pages merged into a single page with tabbed navigation.
+* Admin: Legacy (unused) settings cleaned from DB.
+* Admin: Color picker added.
+* Admin: Interface updated.
+* Admin: DS Core merged in.
+* Admin: Font stylisation options added.
+* Global: Plugin code rewritten for better efficiency and maintainability.
+
 = 1.12 =
 * Bug fix: Meta URI Updated.
 * Settings: Added a setting for Google Analytics.
