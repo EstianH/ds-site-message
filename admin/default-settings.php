@@ -6,7 +6,6 @@ $default_settings = array(
 	),
 	'design' => array(
 		'font' => array(
-			'family'     => 'Montserrat',
 			'color'      => '#fff',
 			'panel'      => true,
 			'panelcolor' => 'rgba( 0, 0, 0, 0.7 )',
@@ -14,8 +13,9 @@ $default_settings = array(
 			'pos'        => 'right'
 		),
 		'background' => array(
+			'enabled'      => 1,
 			'image_active' => 'coffee',
-			'images' => array(
+			'images'       => array(
 				'default' => array(
 					array( 'name' => 'lights',  'url' => DSSM_ASSETS . 'images/lights.jpg' ),
 					array( 'name' => 'bricks',  'url' => DSSM_ASSETS . 'images/bricks.jpg' ),
