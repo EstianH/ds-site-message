@@ -26,6 +26,7 @@ if ( !empty( $dssm->settings['content']['headers'] ) ) {
 	*/
 	?>
 	<head>
+		<title><?php echo $dssm->settings['content']['heading']; ?></title>
 		<link
 			rel="shortcut icon"
 			type="image/x-icon"
