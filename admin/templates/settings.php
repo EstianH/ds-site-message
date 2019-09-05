@@ -260,7 +260,7 @@ $editor_content_body = array(
 										<div class="ds-block-body">
 											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
-													<?php _e( 'Facebook', DSSM_SLUG ); ?>:
+													<?php _e( 'Facebook url', DSSM_SLUG ); ?>:
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
 													<input
@@ -277,7 +277,7 @@ $editor_content_body = array(
 											</div><!-- .ds-row -->
 											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
-													<?php _e( 'Twitter', DSSM_SLUG ); ?>:
+													<?php _e( 'Twitter url', DSSM_SLUG ); ?>:
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
 													<input
@@ -294,7 +294,7 @@ $editor_content_body = array(
 											</div><!-- .ds-row -->
 											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
-													<?php _e( 'Instagram', DSSM_SLUG ); ?>:
+													<?php _e( 'Instagram url', DSSM_SLUG ); ?>:
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
 													<input
@@ -311,7 +311,7 @@ $editor_content_body = array(
 											</div><!-- .ds-row -->
 											<div class="ds-row ds-flex-align-center ds-ml-auto ds-mr-auto">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
-													<?php _e( 'Email', DSSM_SLUG ); ?>:
+													<?php _e( 'Email address', DSSM_SLUG ); ?>:
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
 													<input
@@ -406,7 +406,7 @@ $editor_content_body = array(
 											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
 													<?php _e( 'Google font family', DSSM_SLUG ); ?>:
-													<br /><small>(Enter a Google font name)</small>
+													<br /><a href="https://fonts.google.com/" target="_blank"><small>(Enter any valid Google font name)</small></a>
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
 													<input

@@ -166,10 +166,14 @@ if ( !empty( $dssm->settings['content']['headers'] ) ) {
 					<?php
 					if ( !empty( $dssm->settings['content']['social'] ) )
 						foreach ( $dssm->settings['content']['social'] as $social => $data)
-							if ( !empty( $data['url'] ) && $data['url'] )
+							if ( !empty( $data['url'] ) && $data['url'] ) {
+								if ( 'email' === $social )
+									$data['url'] = 'mailto:' . $data['url'];
+
 								echo '<a class="social-icon ' . $social . ' textcenter" href="' . $data['url'] . '" target="_blank">
 										<i class="' . $data['icon'] . '"></i>
 									</a>';
+							}
 					?>
 				</div>
 			</div>
