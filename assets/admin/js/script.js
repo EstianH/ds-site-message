@@ -123,3 +123,61 @@ jQuery( document ).ready( function() {
 		media_uploader.open();
 	}
 } );
+
+
+/*
+ █████       ██  █████  ██   ██     ███████  ██████  ██████  ███    ███
+██   ██      ██ ██   ██  ██ ██      ██      ██    ██ ██   ██ ████  ████
+███████      ██ ███████   ███       █████   ██    ██ ██████  ██ ████ ██
+██   ██ ██   ██ ██   ██  ██ ██      ██      ██    ██ ██   ██ ██  ██  ██
+██   ██  █████  ██   ██ ██   ██     ██       ██████  ██   ██ ██      ██
+*/
+jQuery( document ).ready( function() {
+	// On input change perform HTML updates.
+	jQuery( document ).on( 'change', '#dssm-form-main input, #dssm-form-main select, #dssm-form-main textarea', function() {
+		jQuery( '#dssm-preview-button' ).html( 'Save & Preview' ).addClass( 'dssm-changes-pending' );
+	} );
+
+	// On preview, save first when changes are pending.
+	jQuery( document ).on( 'click', '#dssm-preview-button.dssm-changes-pending', function( e ) {
+		e.preventDefault();
+		jQuery( '#dssm-form-main' ).submit();
+		jQuery( this ).html( 'Live Preview' ).removeClass( 'dssm-changes-pending' ).addClass( 'dssm-preview-pending' );
+	} );
+
+	// Convert form submission to Ajax submission.
+	jQuery( '#dssm-form-main' ).submit( function( e ) {
+		e.preventDefault();
+
+		jQuery( this ).ajaxSubmit( {
+			beforeSend: function() {
+				jQuery( '#dssm-form-loading-panel' ).addClass( 'active' );
+			},
+			success: function() {
+				jQuery( '#dssm-form-saved-notice' ).addClass( 'active' );
+
+				if ( jQuery( '#dssm-preview-button.dssm-preview-pending' ).hasClass( 'dssm-preview-pending' ) ) {
+					jQuery( '#dssm-preview-button' ).removeClass( 'dssm-preview-pending' );
+
+					var win = window.open( jQuery( '#dssm-preview-button' ).attr( 'href' ), '_dssm-preview' );
+
+					if ( win )
+						win.focus();
+				}
+			},
+			complete: function() {
+				jQuery( '#dssm-form-loading-panel' ).removeClass( 'active' );
+
+				setTimeout(
+					function() {
+						jQuery( '#dssm-form-saved-notice' ).removeClass( 'active' );
+					},
+					5000
+				);
+			},
+			timeout: 5000
+		} );
+
+		return false;
+	} );
+} );

@@ -59,6 +59,7 @@ class DS_SITE_MESSAGE_ADMIN {
 				array( 'wp-color-picker' ),
 				DSSM_VERSION
 			); // Overriden/Extended WP Color Picker
+			wp_enqueue_script( 'jquery-form' ); // WP jQuery for forms.
 
 			// Plugin Assets.
 			wp_enqueue_script ( 'dssm-script', DSSM_ASSETS . 'admin/js/script.js',  array( 'jquery-core', 'wp-color-picker-alpha' ), DSSM_VERSION );

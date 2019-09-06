@@ -34,13 +34,14 @@ $editor_content_body = array(
 		<div class="ds-container ds-p-0 ds-mb-2">
 			<div class="ds-row">
 				<div class="ds-col">
-					<h2 class="pt-0 pb-0 ds-d-none"></h2><!-- WP Notices render after the first <h2> tag in class="wrap" -->
+					<h2 id="ds-header-notices" class="pt-0 pb-0 ds-d-none"></h2><!-- WP Notices render after the first <h2> tag in class="wrap" -->
+					<div id="dssm-form-saved-notice" class="notice notice-success ds-m-0 ds-mb-2"><p>Settings saved</p></div>
 					<div class="ds-tab-nav-wrapper ds-tab-nav-wrapper-animate">
 						<?php
 						foreach( $tabs as $tab )
 							echo '<a href="#' . $tab . '" class="ds-tab-nav' . ( $active_tab === $tab ? ' active' : '' ) . '">' . ucfirst( $tab ) . '</a>';
 
-						echo '<a href="' . home_url() . '?dssm-preview=true" class="ds-tab-nav ds-tab-nav-link ds-ml-1" target="_blank">' . __( 'Live Preview', DSSM_SLUG ) . '</a>';
+						echo '<a id="dssm-preview-button" href="' . home_url() . '?dssm-preview=true" class="ds-tab-nav ds-tab-nav-link ds-ml-1" target="_dssm-preview">' . __( 'Live Preview', DSSM_SLUG ) . '</a>';
 						?>
 					</div><!-- .ds-tab-nav-wrapper -->
 				</div><!-- .ds-col -->
@@ -58,7 +59,8 @@ $editor_content_body = array(
 				*/
 				?>
 				<div class="ds-col-12 ds-col-lg-9 ds-mb-2">
-					<form method="post" action="options.php">
+					<form id="dssm-form-main" method="post" action="options.php">
+						<div id="dssm-form-loading-panel"></div>
 						<?php settings_fields( 'dssm_settings' ); ?>
 						<?php
 						/*
@@ -364,7 +366,7 @@ $editor_content_body = array(
 									</div><!-- .ds-block -->
 								</div><!-- .ds-col -->
 							</div><!-- .ds-row -->
-							<div class="ds-row">
+							<div class="ds-row dssm-sticky-bottom">
 								<div class="ds-col">
 									<div class="ds-block">
 										<div class="ds-block-body ds-p-1">
@@ -693,7 +695,7 @@ $editor_content_body = array(
 									</div><!-- .ds-block -->
 								</div><!-- .ds-col -->
 							</div><!-- .ds-row -->
-							<div class="ds-row">
+							<div class="ds-row dssm-sticky-bottom">
 								<div class="ds-col">
 									<div class="ds-block">
 										<div class="ds-block-body ds-p-1">

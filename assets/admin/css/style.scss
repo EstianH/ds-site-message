@@ -96,6 +96,42 @@ $ds-line-height: 18px;
 	}
 }
 
+#dssm-form-saved-notice {
+	transition: right 0.4s;
+	position: fixed;
+	width: 100%;
+	max-width: 300px;
+	top: 50px;
+	right: -310px;
+	z-index: 10;
+
+	&.active {
+		right: 0px;
+	}
+}
+
+#dssm-form-loading-panel {
+	transition: visibility 0.4s;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.5);
+	z-index: 9;
+	visibility: hidden;
+
+	&.active {
+		visibility: visible;
+	}
+}
+
+.dssm-sticky-bottom {
+	position: sticky;
+	bottom: 0;
+	z-index: 8;
+}
+
 @media( min-width: $ds-global-width-sm ) {
 
 }
