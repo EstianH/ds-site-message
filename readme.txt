@@ -7,9 +7,9 @@ Author URI: https://www.divspot.co.za
 Author: Estian Hough
 Requires PHP: 5.6
 Requires at least: 4.9.4
-Tested up to: 5.2.2
-Stable tag: 1.13
-Version: 1.13
+Tested up to: 5.2.3
+Stable tag: 1.13.1
+Version: 1.13.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://www.divspot.co.za
@@ -35,6 +35,12 @@ Simply activate DSSM from the settings page in the administrator panel.
 4. Click on the "Activate" button for DSSM.
 
 == Upgrade Notice ==
+= 1.13.1 =
+* Admin: Settings template updated to save option values with Ajax.
+* Admin: Options are now being saved automatically when using the Preview feature.
+* Admin: Added a sticky effect to the form save buttons.
+* Admin: Added a quick link to the Google fonts page.
+
 = 1.13 =
 * Admin: Settings pages merged into a single page with tabbed navigation.
 * Admin: Legacy (unused) settings cleaned from DB.
@@ -64,6 +70,12 @@ Initial release.
 3. DSSM example page.
 
 == Changelog ==
+= 1.13.1 =
+* Admin: Settings template updated to save option values with Ajax.
+* Admin: Options are now being saved automatically when using the Preview feature.
+* Admin: Added a sticky effect to the form save buttons.
+* Admin: Added a quick link to the Google fonts page.
+
 = 1.13 =
 * Admin: Settings pages merged into a single page with tabbed navigation.
 * Admin: Legacy (unused) settings cleaned from DB.
