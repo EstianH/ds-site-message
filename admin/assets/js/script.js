@@ -133,13 +133,15 @@ jQuery( document ).ready( function() {
 ██   ██  █████  ██   ██ ██   ██     ██       ██████  ██   ██ ██      ██
 */
 jQuery( document ).ready( function() {
+	var original_prev_button_html = jQuery( '.dssm-preview-button' ).html(); // Capture the original text value as is defined in the template.
+
 	// On input change perform HTML updates.
 	jQuery( document ).on( 'change', '#dssm-form-main input, #dssm-form-main select, #dssm-form-main textarea', function() {
-		jQuery( '#dssm-preview-button' ).html( 'Save & Preview' ).addClass( 'dssm-changes-pending' );
+		jQuery( '.dssm-preview-button' ).html( 'Save & Preview' ).addClass( 'dssm-changes-pending' );
 	} );
 
 	// On preview, save first when changes are pending.
-	jQuery( document ).on( 'click', '#dssm-preview-button.dssm-changes-pending', function( e ) {
+	jQuery( document ).on( 'click', '.dssm-preview-button.dssm-changes-pending', function( e ) {
 		e.preventDefault();
 		jQuery( '#dssm-form-main' ).submit();
 		jQuery( this ).html( 'Live Preview' ).removeClass( 'dssm-changes-pending' ).addClass( 'dssm-preview-pending' );
@@ -156,14 +158,14 @@ jQuery( document ).ready( function() {
 			success: function() {
 				jQuery( '#dssm-form-saved-notice' ).addClass( 'active' );
 
-				if ( jQuery( '#dssm-preview-button.dssm-preview-pending' ).hasClass( 'dssm-preview-pending' ) ) {
-					jQuery( '#dssm-preview-button' ).removeClass( 'dssm-preview-pending' );
-
-					var win = window.open( jQuery( '#dssm-preview-button' ).attr( 'href' ), '_dssm-preview' );
+				if ( jQuery( '.dssm-preview-button.dssm-preview-pending' ).hasClass( 'dssm-preview-pending' ) ) {
+					var win = window.open( jQuery( '.dssm-preview-button' ).attr( 'href' ), '_dssm-preview' );
 
 					if ( win )
 						win.focus();
 				}
+
+				jQuery( '.dssm-preview-button' ).removeClass( 'dssm-changes-pending dssm-preview-pending' ).html( original_prev_button_html );
 			},
 			complete: function() {
 				jQuery( '#dssm-form-loading-panel' ).removeClass( 'active' );

@@ -55,19 +55,19 @@ class DS_SITE_MESSAGE_ADMIN {
 			wp_enqueue_style  ( 'wp-color-picker' ); // WP Color Picker
 			wp_enqueue_script (
 				'wp-color-picker-alpha',
-				DSSM_ASSETS . 'vendors/wp-color-picker-alpha/wp-color-picker-alpha.min.js',
+				DSSM_ADMIN . 'assets/vendors/wp-color-picker-alpha/wp-color-picker-alpha.min.js',
 				array( 'wp-color-picker' ),
 				DSSM_VERSION
 			); // Overriden/Extended WP Color Picker
 			wp_enqueue_script( 'jquery-form' ); // WP jQuery for forms.
 
 			// Plugin Assets.
-			wp_enqueue_script ( 'dssm-script', DSSM_ASSETS . 'admin/js/script.js',  array( 'jquery-core', 'wp-color-picker-alpha' ), DSSM_VERSION );
-			wp_enqueue_style  ( 'dssm-style',  DSSM_ASSETS . 'admin/css/style.css', array(), DSSM_VERSION );
+			wp_enqueue_script ( 'dssm-script', DSSM_ADMIN . 'assets/js/script.js',  array( 'jquery-core', 'wp-color-picker-alpha' ), DSSM_VERSION );
+			wp_enqueue_style  ( 'dssm-style',  DSSM_ADMIN . 'assets/css/style.css', array(), DSSM_VERSION );
 
 			// Enqueue vendor assets.
-			wp_enqueue_script ( 'dsc-script', DSSM_ASSETS . 'vendors/ds-core/js/script.js',  array( 'jquery-core' ), DSSM_VERSION );
-			wp_enqueue_style  (  'dsc-style', DSSM_ASSETS . 'vendors/ds-core/css/style.css', array(), DSSM_VERSION );
+			wp_enqueue_script ( 'dsc-script', DSSM_ADMIN . 'assets/vendors/ds-core/js/script.js',  array( 'jquery-core' ), DSSM_VERSION );
+			wp_enqueue_style  (  'dsc-style', DSSM_ADMIN . 'assets/vendors/ds-core/css/style.css', array(), DSSM_VERSION );
 		} );
 
 		// Filters

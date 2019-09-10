@@ -8,8 +8,8 @@ Author: Estian Hough
 Requires PHP: 5.6
 Requires at least: 4.9.4
 Tested up to: 5.2.3
-Stable tag: 1.13.1
-Version: 1.13.1
+Stable tag: 1.13.2
+Version: 1.13.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://www.divspot.co.za
@@ -35,34 +35,39 @@ Simply activate DSSM from the settings page in the administrator panel.
 4. Click on the "Activate" button for DSSM.
 
 == Upgrade Notice ==
+= 1.13.2 =
+* Update: Restructured the asset folders.
+* Update: Moved the "Live Preview" button from the tabs nav to the sticky container.
+* Fix: Fixed a preview button language issue.
+
 = 1.13.1 =
-* Admin: Settings template updated to save option values with Ajax.
-* Admin: Options are now being saved automatically when using the Preview feature.
-* Admin: Added a sticky effect to the form save buttons.
-* Admin: Added a quick link to the Google fonts page.
+* Update: Settings template updated to save option values with Ajax.
+* Update: Options are now being saved automatically when using the Preview feature.
+* Update: Added a sticky effect to the form save buttons.
+* Update: Added a quick link to the Google fonts page.
 
 = 1.13 =
-* Admin: Settings pages merged into a single page with tabbed navigation.
-* Admin: Legacy (unused) settings cleaned from DB.
-* Admin: Color picker added.
-* Admin: Interface updated.
-* Admin: DS Core merged in.
-* Admin: Font stylisation options added.
-* Global: Plugin code rewritten for better efficiency and maintainability.
+* Update: Settings pages merged into a single page with tabbed navigation.
+* Update: Legacy (unused) settings cleaned from DB.
+* Update: Color picker added.
+* Update: Interface updated.
+* Update: DS Core merged in.
+* Update: Font stylisation options added.
+* Fix: Plugin code rewritten for better efficiency and maintainability.
 
 = 1.12 =
-* Bug fix: Meta URI Updated.
-* Settings: Added a setting for Google Analytics.
-* Settings: Added a setting for a favicon.
+* Fix: Meta URI Updated.
+* Update: Added a setting for Google Analytics.
+* Update: Added a setting for a favicon.
 
 = 1.11 =
-* Bug fix: Custom background images not saving in the administration panel.
+* Fix: Custom background images not saving in the administration panel.
 
 = 1.1 =
-* Modified the DSSM administrator panel.
+* Update: Modified the DSSM administrator panel.
 
 = 1.0 =
-Initial release.
+* Update: Initial release.
 
 == Screenshots ==
 1. DSSM example page.
@@ -70,38 +75,39 @@ Initial release.
 3. DSSM example page.
 
 == Changelog ==
+= 1.13.2 =
+* Update: Restructured the asset folders.
+* Update: Moved the "Live Preview" button from the tabs nav to the sticky container.
+* Fix: Fixed a preview button language issue.
+
 = 1.13.1 =
-* Admin: Settings template updated to save option values with Ajax.
-* Admin: Options are now being saved automatically when using the Preview feature.
-* Admin: Added a sticky effect to the form save buttons.
-* Admin: Added a quick link to the Google fonts page.
+* Update: Settings template updated to save option values with Ajax.
+* Update: Options are now being saved automatically when using the Preview feature.
+* Update: Added a sticky effect to the form save buttons.
+* Update: Added a quick link to the Google fonts page.
 
 = 1.13 =
-* Admin: Settings pages merged into a single page with tabbed navigation.
-* Admin: Legacy (unused) settings cleaned from DB.
-* Admin: Color picker added.
-* Admin: Interface updated.
-* Admin: DS Core merged in.
-* Admin: Font stylisation options added.
-* Global: Plugin code rewritten for better efficiency and maintainability.
+* Update: Settings pages merged into a single page with tabbed navigation.
+* Update: Legacy (unused) settings cleaned from DB.
+* Update: Color picker added.
+* Update: Interface updated.
+* Update: DS Core merged in.
+* Update: Font stylisation options added.
+* Fix: Plugin code rewritten for better efficiency and maintainability.
 
 = 1.12 =
-* Bug fix: Meta URI Updated.
-* Settings: Added a setting for Google Analytics.
-* Settings: Added a setting for a favicon.
+* Fix: Meta URI Updated.
+* Update: Added a setting for Google Analytics.
+* Update: Added a setting for a favicon.
 
 = 1.11 =
-* Bug fix: Custom background images not saving in the administration panel.
+* Fix: Custom background images not saving in the administration panel.
 
 = 1.1 =
-* Divided administrator settings into "Content" and "Design" tabs.
-* Administrator block titles background color changed from #515151 to #f9f9f9.
-* Tab "preview" text changed to "Live Preview".
-* Removed "Message Position" option "center" and replaced it with "Full-width".
-* Added the "DS" menu icon.
+* Update: Modified the DSSM administrator panel.
 
 = 1.0 =
-* Initial release.
+* Update: Initial release.
 
 == Frequently Asked Questions ==
 = Does DSSM include temporarily unavailable headers (503)? =

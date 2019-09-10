@@ -2,8 +2,8 @@
 /*
 Plugin Name:  DS Site Message
 Plugin URI:   https://www.divspot.co.za/plugin-ds-site-message/
-Description:  Add maintenance or coming pages to your wordpress site.
-Version:      1.13.1
+Description:  Add a maintenance or coming soon page to your wordpress site.
+Version:      1.13.2
 Author:       EstianH
 Author URI:   https://www.divspot.co.za
 License:      GPLv3 or later
@@ -26,10 +26,11 @@ if( !defined( 'DIVSPOT_URL' ) )
 define('DSSM_BASENAME', plugin_basename( __FILE__ ) );
 define('DSSM_URL'     , plugins_url( '', DSSM_BASENAME ) . '/' ); // User-Friendly URL
 define('DSSM_ROOT'    , __DIR__ . '/' ); // FTP Path
+define('DSSM_ADMIN'   , DSSM_URL . 'admin/' ); // FTP Path
 define('DSSM_ASSETS'  , DSSM_URL . 'assets/' ); // FTP Path
 define('DSSM_TITLE'   , 'DS Site Message' );
 define('DSSM_SLUG'    , 'ds-site-message' ); // Plugin slug.
-define('DSSM_VERSION' , '1.13.1' );
+define('DSSM_VERSION' , '1.13.2' );
 
 
 /*

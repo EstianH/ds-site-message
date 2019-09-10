@@ -40,8 +40,6 @@ $editor_content_body = array(
 						<?php
 						foreach( $tabs as $tab )
 							echo '<a href="#' . $tab . '" class="ds-tab-nav' . ( $active_tab === $tab ? ' active' : '' ) . '">' . ucfirst( $tab ) . '</a>';
-
-						echo '<a id="dssm-preview-button" href="' . home_url() . '?dssm-preview=true" class="ds-tab-nav ds-tab-nav-link ds-ml-1" target="_dssm-preview">' . __( 'Live Preview', DSSM_SLUG ) . '</a>';
 						?>
 					</div><!-- .ds-tab-nav-wrapper -->
 				</div><!-- .ds-col -->
@@ -370,7 +368,10 @@ $editor_content_body = array(
 								<div class="ds-col">
 									<div class="ds-block">
 										<div class="ds-block-body ds-p-1">
-											<?php submit_button('', 'button-primary button-hero', '', false ); ?>
+											<?php
+											submit_button('', 'button-primary button-hero', '', false );
+											echo '<a href="' . home_url() . '?dssm-preview=true" class="dssm-preview-button button button-hero ds-ml-1" target="_dssm-preview">' . __( 'Live Preview', DSSM_SLUG ) . '</a>';
+											?>
 										</div><!-- .ds-block-body -->
 									</div><!-- .ds-block -->
 								</div><!-- .ds-col -->
@@ -699,7 +700,10 @@ $editor_content_body = array(
 								<div class="ds-col">
 									<div class="ds-block">
 										<div class="ds-block-body ds-p-1">
-											<?php submit_button('', 'button-primary button-hero', '', false ); ?>
+											<?php
+											submit_button('', 'button-primary button-hero', '', false );
+											echo '<a href="' . home_url() . '?dssm-preview=true" class="dssm-preview-button button button-hero ds-ml-1" target="_dssm-preview">' . __( 'Live Preview', DSSM_SLUG ) . '</a>';
+											?>
 										</div><!-- .ds-block-body -->
 									</div><!-- .ds-block -->
 								</div><!-- .ds-col -->
