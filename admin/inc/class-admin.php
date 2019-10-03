@@ -47,7 +47,7 @@ class DS_SITE_MESSAGE_ADMIN {
 
 		// Enqueue admin assets.
 		add_action( 'admin_enqueue_scripts', function( $hook ) {
-			if( 'toplevel_page_' . DSSM_SLUG !== $hook ) // Enqueue only on the appropriate page.
+			if( 'tools_page_' . DSSM_SLUG !== $hook ) // Enqueue only on the appropriate page.
 				return;
 
 			// WP Assets.
@@ -91,16 +91,14 @@ class DS_SITE_MESSAGE_ADMIN {
 		if ( !empty( $GLOBALS['admin_page_hooks'][DSSM_SLUG] ) )
 			return;
 
-		add_menu_page(
+		add_management_page(
 			DSSM_TITLE,                                 // $page_title
 			DSSM_TITLE,                                 // $menu_title
 			'edit_plugins',                             // $capability
 			DSSM_SLUG,                                  // $menu_slug
 			function() {                                // $function
 				load_template( DSSM_ROOT . 'admin/templates/settings.php' );
-			},
-			DSSM_ASSETS . 'images/icon-xs.png',         // $icon_url
-			79                                          // $position
+			}                                         // $position
 		);
 	}
 
@@ -153,7 +151,7 @@ class DS_SITE_MESSAGE_ADMIN {
 	 * @return array $links Updated plugin links.
 	 */
 	public function register_plugin_action_links( $links ) {
-		$settings_link = '<a href="' . esc_url( admin_url( '/admin.php' ) ) . '?page=' . DSSM_SLUG . '">' . __( 'Settings', DSSM_SLUG ) . '</a>';
+		$settings_link = '<a href="' . esc_url( admin_url( '/tools.php' ) ) . '?page=' . DSSM_SLUG . '">' . __( 'Settings', DSSM_SLUG ) . '</a>';
 		array_push( $links, $settings_link );
 
 		return $links;
