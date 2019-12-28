@@ -78,6 +78,9 @@ class DS_SITE_MESSAGE_ADMIN {
 
 		// Register notifications.
 		add_action( 'admin_notices', array( $this, 'add_notices' ) );
+
+		// On settings save.
+		add_action( 'update_option_dssm_settings', array( $this, 'updated_dssm_settings' ), 10, 2 );
 	}
 
 	/**
@@ -168,6 +171,59 @@ class DS_SITE_MESSAGE_ADMIN {
 				echo '<div class="notice notice-success is-dismissible ds-mt-2 ds-mr-0 ds-mb-2 ds-ml-0">
 					<p>' . __( 'Settings saved.', DSSM_SLUG ) . '</p>
 				</div>';
+	}
+
+	/**
+	 * On settings save.
+	 *
+	 * @access public
+	 */
+	function updated_dssm_settings( $old_value, $value ) {
+		if (
+			!empty( $old_value ) && !empty( $value )
+			&& $old_value !== $value
+		) {
+			// Clear 3rd party caches.
+			$this->clear_cache_maybe();
+		}
+	}
+
+	/**
+	 * Clear 3rd party caches.
+	 *
+	 * @access public
+	 */
+	function clear_cache_maybe() {
+		// Clear Litespeed cache.
+		method_exists( 'LiteSpeed_Cache_API', 'purge_all' ) && LiteSpeed_Cache_API::purge_all();
+
+		// Clear W3 Total Cache.
+		if ( function_exists( 'w3tc_pgcache_flush' ) )
+			w3tc_pgcache_flush();
+
+		// Clear WP Super Cache.
+		if ( function_exists( 'wp_cache_clear_cache' ) )
+			wp_cache_clear_cache();
+
+		// Clear WP Fastest Cache.
+		if (
+			          !empty( $GLOBALS['wp_fastest_cache'] )
+			&& method_exists( $GLOBALS['wp_fastest_cache'], 'deleteCache' )
+		)
+			$GLOBALS['wp_fastest_cache']->deleteCache( true );
+
+		// Clear Site ground.
+		if (
+			    class_exists( 'SG_CachePress_Supercacher' )
+			&& method_exists( 'SG_CachePress_Supercacher', 'purge_cache' )
+		)
+			SG_CachePress_Supercacher::purge_cache(true);
+
+		// Clear Endurance Cache.
+		if ( class_exists( 'Endurance_Page_Cache' ) ) {
+			$endurance = new Endurance_Page_Cache;
+			$endurance->purge_all();
+		}
 	}
 }
 

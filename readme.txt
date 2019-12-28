@@ -7,9 +7,9 @@ Author URI: https://www.divspot.co.za
 Author: divSpot
 Requires PHP: 5.6
 Requires at least: 4.9.4
-Tested up to: 5.2.3
-Stable tag: 1.14
-Version: 1.14
+Tested up to: 5.3.2
+Stable tag: 1.14.1
+Version: 1.14.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://www.divspot.co.za
@@ -35,6 +35,11 @@ Simply activate DSSM from the settings page in the administrator panel.
 4. Click on the "Activate" button for DSSM.
 
 == Upgrade Notice ==
+= 1.14.1 =
+* Update: DS Core updated.
+* Update: Cache clearing functionality added on save.
+* Fix: Maintenance page template priority updated.
+
 = 1.14 =
 * Update: Moved the admin settings page to the WordPress tools menu.
 * Update: Author updated from EstianH to divSpot.
@@ -79,6 +84,11 @@ Simply activate DSSM from the settings page in the administrator panel.
 3. DSSM example page.
 
 == Changelog ==
+= 1.14.1 =
+* Update: DS Core updated.
+* Update: Cache clearing functionality added on save.
+* Fix: Maintenance page template priority updated.
+
 = 1.14 =
 * Update: Moved the admin settings page to the WordPress tools menu.
 * Update: Author updated from EstianH to divSpot.

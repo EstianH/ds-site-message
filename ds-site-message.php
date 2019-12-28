@@ -3,7 +3,7 @@
 Plugin Name:  DS Site Message
 Plugin URI:   https://www.divspot.co.za/plugin-ds-site-message/
 Description:  Add a maintenance or coming soon page to your wordpress site.
-Version:      1.14
+Version:      1.14.1
 Author:       divSpot
 Author URI:   https://www.divspot.co.za
 License:      GPLv3 or later
@@ -30,7 +30,7 @@ define('DSSM_ADMIN'   , DSSM_URL . 'admin/' ); // FTP Path
 define('DSSM_ASSETS'  , DSSM_URL . 'assets/' ); // FTP Path
 define('DSSM_TITLE'   , 'DS Site Message' );
 define('DSSM_SLUG'    , 'ds-site-message' ); // Plugin slug.
-define('DSSM_VERSION' , '1.14' );
+define('DSSM_VERSION' , '1.14.1' );
 
 
 /*
@@ -85,7 +85,7 @@ class DS_SITE_MESSAGE {
 				   ( !empty( $_GET['dssm-preview'] ) && true === ( bool )$_GET['dssm-preview'] )
 				|| ( !empty( $this->settings['content']['enabled'] ) && !current_user_can( 'edit_plugins' ) )
 			)
-				add_filter( 'template_include', array( $this, 'render_message_page' ), 99, 1 );
+				add_filter( 'template_include', array( $this, 'render_message_page' ), 9999, 1 ); // High priority in order to mitigate other plugins'/theme features from overriding this template.
 			else if ( !empty( $this->settings['content']['enabled'] ) ) // Render a front-end maintenance notice message for administrators.
 				add_action( 'wp_footer', function() {
 					load_template( DSSM_ROOT . 'templates/admin-notice.php' );
