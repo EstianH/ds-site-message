@@ -7,9 +7,9 @@ Author URI: https://www.divspot.co.za
 Author: divSpot
 Requires PHP: 7.2
 Requires at least: 4.9.4
-Tested up to: 6.2
-Stable tag: 1.14.4
-Version: 1.14.4
+Tested up to: 6.7.2
+Stable tag: 1.14.5
+Version: 1.14.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://www.divspot.co.za
@@ -35,6 +35,9 @@ Simply activate DSSM from the settings page in the administrator panel.
 4. Click on the "Activate" button for DSSM.
 
 == Upgrade Notice ==
+= 1.14.5 =
+* Update: Version bump.
+
 = 1.14.4 =
 * Update: Compatibility with WordPress 6.2.
 
@@ -93,6 +96,9 @@ Simply activate DSSM from the settings page in the administrator panel.
 3. DSSM example page.
 
 == Changelog ==
+= 1.14.5 =
+* Update: Version bump.
+
 = 1.14.4 =
 * Update: Compatibility with WordPress 6.2.
 
