@@ -2,7 +2,7 @@
 Contributors: divspot
 Plugin Name: DS Site Message
 Plugin URI: https://www.divspot.co.za/ds-site-message
-Tags: maintenance, coming soon, maintenance mode, website message, under construction, down for maintenance, temporarily unavailable
+Tags: maintenance, coming soon, maintenance mode, website message, under construction
 Author URI: https://www.divspot.co.za
 Author: divSpot
 Requires PHP: 7.2
@@ -14,8 +14,10 @@ License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://www.divspot.co.za
 
+DS Site Message (DSSM) adds to WordPress a beautiful Maintenance, Coming Soon or Offline-Message page.
+
 == Description ==
-DS Site Message (DSSM) adds to WordPress a beautiful Maintenance, Coming Soon or Global Message page.
+DS Site Message (DSSM) adds to WordPress a beautiful Maintenance, Coming Soon or Offline-Message page.
 Simply activate DSSM from the settings page in the administrator panel.
 
 = Features =
