@@ -1,31 +1,32 @@
-<?php if( !defined( 'ABSPATH' ) ) exit;
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	exit;}
 
 $dssm = DS_SITE_MESSAGE::get_instance();
 
-$tabs = array( 'content', 'design' );
-$active_tab = ( !empty( $_GET['tab'] ) ? $_GET['tab'] : $tabs[0] );
+$tabs       = [ 'content', 'design' ];
+$active_tab = ( ! empty( $_GET['tab'] ) ? $_GET['tab'] : $tabs[0] );
 
-$aligns = array(
+$aligns = [
 	'left'   => 'left',
 	'center' => 'center',
-	'right'  => 'right'
-);
+	'right'  => 'right',
+];
 
-$positions = array(
+$positions = [
 	'left'       => 'left',
 	'full-width' => 'full-width',
-	'right'      => 'right'
-);
+	'right'      => 'right',
+];
 
-$editor_content_body = array(
-	'content'         => ( !empty( $dssm->settings['content']['body'] ) ? $dssm->settings['content']['body'] : '' ),
-	'editor_id'       => 'dssmsettingsbody',
-	'arguments'       => array(
+$editor_content_body = [
+	'content'   => ( ! empty( $dssm->settings['content']['body'] ) ? $dssm->settings['content']['body'] : '' ),
+	'editor_id' => 'dssmsettingsbody',
+	'arguments' => [
 		'media_buttons' => false,
 		'textarea_name' => 'dssm_settings[content][body]',
-		'textarea_rows' => 8
-	)
-);
+		'textarea_rows' => 8,
+	],
+];
 ?>
 
 <div class="ds-wrapper">
@@ -38,8 +39,9 @@ $editor_content_body = array(
 					<div id="dssm-form-saved-notice" class="notice notice-success ds-m-0 ds-mb-2"><p>Settings saved</p></div>
 					<div class="ds-tab-nav-wrapper ds-tab-nav-wrapper-animate">
 						<?php
-						foreach( $tabs as $tab )
+						foreach ( $tabs as $tab ) {
 							echo '<a href="#' . $tab . '" class="ds-tab-nav' . ( $active_tab === $tab ? ' active' : '' ) . '">' . ucfirst( $tab ) . '</a>';
+						}
 						?>
 					</div><!-- .ds-tab-nav-wrapper -->
 				</div><!-- .ds-col -->
@@ -47,38 +49,11 @@ $editor_content_body = array(
 		</div><!-- .ds-container -->
 		<div class="ds-container ds-p-0">
 			<div class="ds-row">
-				<?php
-				/*
-				███    ███  █████  ██ ███    ██
-				████  ████ ██   ██ ██ ████   ██
-				██ ████ ██ ███████ ██ ██ ██  ██
-				██  ██  ██ ██   ██ ██ ██  ██ ██
-				██      ██ ██   ██ ██ ██   ████
-				*/
-				?>
 				<div class="ds-col-12 ds-col-lg-9 ds-mb-2">
 					<form id="dssm-form-main" method="post" action="options.php">
 						<div id="dssm-form-loading-panel"></div>
 						<?php settings_fields( 'dssm_settings' ); ?>
-						<?php
-						/*
-						████████  █████  ██████                 ██████  ██████  ███    ██ ████████ ███████ ███    ██ ████████
-						   ██    ██   ██ ██   ██               ██      ██    ██ ████   ██    ██    ██      ████   ██    ██
-						   ██    ███████ ██████      █████     ██      ██    ██ ██ ██  ██    ██    █████   ██ ██  ██    ██
-						   ██    ██   ██ ██   ██               ██      ██    ██ ██  ██ ██    ██    ██      ██  ██ ██    ██
-						   ██    ██   ██ ██████                 ██████  ██████  ██   ████    ██    ███████ ██   ████    ██
-						*/
-						?>
 						<div id="content" class="ds-tab-content active">
-							<?php
-							/*
-							██████  ██       ██████   ██████ ██   ██                ██████  ███████ ███    ██ ███████ ██████   █████  ██
-							██   ██ ██      ██    ██ ██      ██  ██                ██       ██      ████   ██ ██      ██   ██ ██   ██ ██
-							██████  ██      ██    ██ ██      █████       █████     ██   ███ █████   ██ ██  ██ █████   ██████  ███████ ██
-							██   ██ ██      ██    ██ ██      ██  ██                ██    ██ ██      ██  ██ ██ ██      ██   ██ ██   ██ ██
-							██████  ███████  ██████   ██████ ██   ██                ██████  ███████ ██   ████ ███████ ██   ██ ██   ██ ███████
-							*/
-							?>
 							<div class="ds-row ds-mb-2">
 								<div class="ds-col">
 									<div class="ds-block">
@@ -99,12 +74,12 @@ $editor_content_body = array(
 															name="dssm_settings[content][enabled]"
 															type="checkbox"
 															value="1"
-															<?php echo ( !empty( $dssm->settings['content']['enabled'] ) ? ' checked="checked"' : ''); ?> />
+															<?php echo ( ! empty( $dssm->settings['content']['enabled'] ) ? ' checked="checked"' : '' ); ?> />
 															<span></span>
 													</label>
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
-											<div class="ds-row ds-flex-align-center ds-ml-auto ds-mr-auto ds-block-toggler<?php echo ( !empty( $dssm->settings['content']['headers'] ) ? ' active' : ''); ?>">
+											<div class="ds-row ds-flex-align-center ds-ml-auto ds-mr-auto ds-block-toggler<?php echo ( ! empty( $dssm->settings['content']['headers'] ) ? ' active' : '' ); ?>">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
 													<?php _e( 'Add temporarily unavailable headers (503)', DSSM_SLUG ); ?>:
 												</div>
@@ -115,7 +90,7 @@ $editor_content_body = array(
 															type="checkbox"
 															value="1"
 															class="ds-block-toggler-input"
-															<?php echo ( !empty( $dssm->settings['content']['headers'] ) ? ' checked="checked"' : ''); ?> />
+															<?php echo ( ! empty( $dssm->settings['content']['headers'] ) ? ' checked="checked"' : '' ); ?> />
 															<span></span>
 													</label>
 												</div><!-- .ds-col -->
@@ -130,7 +105,7 @@ $editor_content_body = array(
 															class="ds-input-box"
 															name="dssm_settings[content][retryafter]"
 															type="number"
-															value="<?php echo ( !empty( $dssm->settings['content']['retryafter'] ) ? $dssm->settings['content']['retryafter'] : ''); ?>"
+															value="<?php echo ( ! empty( $dssm->settings['content']['retryafter'] ) ? $dssm->settings['content']['retryafter'] : '' ); ?>"
 															placeholder="600" />
 													</div><!-- .ds-col -->
 												</div><!-- .ds-row -->
@@ -139,15 +114,6 @@ $editor_content_body = array(
 									</div><!-- .ds-block -->
 								</div><!-- .ds-col -->
 							</div><!-- .ds-row -->
-							<?php
-							/*
-							██████  ██       ██████   ██████ ██   ██               ███    ███ ███████ ███████ ███████  █████   ██████  ███████
-							██   ██ ██      ██    ██ ██      ██  ██                ████  ████ ██      ██      ██      ██   ██ ██       ██
-							██████  ██      ██    ██ ██      █████       █████     ██ ████ ██ █████   ███████ ███████ ███████ ██   ███ █████
-							██   ██ ██      ██    ██ ██      ██  ██                ██  ██  ██ ██           ██      ██ ██   ██ ██    ██ ██
-							██████  ███████  ██████   ██████ ██   ██               ██      ██ ███████ ███████ ███████ ██   ██  ██████  ███████
-							*/
-							?>
 							<div class="ds-row ds-mb-2">
 								<div class="ds-col">
 									<div class="ds-block">
@@ -167,17 +133,17 @@ $editor_content_body = array(
 														class="ds-input-box"
 														name="dssm_settings[content][heading]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['content']['heading'] ) ? $dssm->settings['content']['heading'] : ''); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['content']['heading'] ) ? $dssm->settings['content']['heading'] : '' ); ?>"
 														placeholder="Leave empty for no heading..." />
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
-											<?php $content_logo_url = ( !empty( $dssm->settings['content']['logo'] ) ? $dssm->settings['content']['logo'] : '' ); ?>
+											<?php $content_logo_url = ( ! empty( $dssm->settings['content']['logo'] ) ? $dssm->settings['content']['logo'] : '' ); ?>
 											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
 													<?php _e( 'Logo', DSSM_SLUG ); ?>:
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
-													<div id="logo" class="ds-image-load<?php echo ( !empty( $content_logo_url ) ? ' loaded' : '' ); ?>">
+													<div id="logo" class="ds-image-load<?php echo ( ! empty( $content_logo_url ) ? ' loaded' : '' ); ?>">
 														<div class="ds-row">
 															<div class="ds-col-6 ds-col-lg-3">
 																<input
@@ -199,13 +165,13 @@ $editor_content_body = array(
 													</div>
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
-											<?php $content_favicon_url = ( !empty( $dssm->settings['content']['favicon'] ) ? $dssm->settings['content']['favicon'] : '' ); ?>
+											<?php $content_favicon_url = ( ! empty( $dssm->settings['content']['favicon'] ) ? $dssm->settings['content']['favicon'] : '' ); ?>
 											<div class="ds-row ds-flex-align-center ds-pb-1 ds-mb-1 ds-bb ds-ml-auto ds-mr-auto">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
 													<?php _e( 'Favicon', DSSM_SLUG ); ?>:
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
-													<div id="favicon" class="ds-image-load<?php echo ( !empty( $content_favicon_url ) ? ' loaded' : '' ); ?>">
+													<div id="favicon" class="ds-image-load<?php echo ( ! empty( $content_favicon_url ) ? ' loaded' : '' ); ?>">
 														<div class="ds-row">
 															<div class="ds-col-2 ds-col-lg-1">
 																<input
@@ -239,15 +205,6 @@ $editor_content_body = array(
 									</div><!-- .ds-block -->
 								</div><!-- .ds-col -->
 							</div><!-- .ds-row -->
-							<?php
-							/*
-							██████  ██       ██████   ██████ ██   ██               ███████  ██████   ██████ ██  █████  ██
-							██   ██ ██      ██    ██ ██      ██  ██                ██      ██    ██ ██      ██ ██   ██ ██
-							██████  ██      ██    ██ ██      █████       █████     ███████ ██    ██ ██      ██ ███████ ██
-							██   ██ ██      ██    ██ ██      ██  ██                     ██ ██    ██ ██      ██ ██   ██ ██
-							██████  ███████  ██████   ██████ ██   ██               ███████  ██████   ██████ ██ ██   ██ ███████
-							*/
-							?>
 							<div class="ds-row ds-mb-2">
 								<div class="ds-col">
 									<div class="ds-block">
@@ -267,7 +224,7 @@ $editor_content_body = array(
 														class="ds-input-box"
 														name="dssm_settings[content][social][facebook][url]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['content']['social']['facebook']['url'] ) ? $dssm->settings['content']['social']['facebook']['url'] : ''); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['content']['social']['facebook']['url'] ) ? $dssm->settings['content']['social']['facebook']['url'] : '' ); ?>"
 														placeholder="Leave empty to exclude" />
 													<input
 														name="dssm_settings[content][social][facebook][icon]"
@@ -284,7 +241,7 @@ $editor_content_body = array(
 														class="ds-input-box"
 														name="dssm_settings[content][social][twitter][url]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['content']['social']['twitter']['url'] ) ? $dssm->settings['content']['social']['twitter']['url'] : ''); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['content']['social']['twitter']['url'] ) ? $dssm->settings['content']['social']['twitter']['url'] : '' ); ?>"
 														placeholder="Leave empty to exclude" />
 													<input
 														name="dssm_settings[content][social][twitter][icon]"
@@ -301,7 +258,7 @@ $editor_content_body = array(
 														class="ds-input-box"
 														name="dssm_settings[content][social][instagram][url]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['content']['social']['instagram']['url'] ) ? $dssm->settings['content']['social']['instagram']['url'] : ''); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['content']['social']['instagram']['url'] ) ? $dssm->settings['content']['social']['instagram']['url'] : '' ); ?>"
 														placeholder="Leave empty to exclude" />
 													<input
 														name="dssm_settings[content][social][instagram][icon]"
@@ -318,7 +275,7 @@ $editor_content_body = array(
 														class="ds-input-box"
 														name="dssm_settings[content][social][email][url]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['content']['social']['email']['url'] ) ? $dssm->settings['content']['social']['email']['url'] : ''); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['content']['social']['email']['url'] ) ? $dssm->settings['content']['social']['email']['url'] : '' ); ?>"
 														placeholder="Leave empty to exclude" />
 													<input
 														name="dssm_settings[content][social][email][icon]"
@@ -330,15 +287,6 @@ $editor_content_body = array(
 									</div><!-- .ds-block -->
 								</div><!-- .ds-col -->
 							</div><!-- .ds-row -->
-							<?php
-							/*
-							██████  ██       ██████   ██████ ██   ██                █████  ███    ██  █████  ██   ██    ██ ████████ ██  ██████ ███████
-							██   ██ ██      ██    ██ ██      ██  ██                ██   ██ ████   ██ ██   ██ ██    ██  ██     ██    ██ ██      ██
-							██████  ██      ██    ██ ██      █████       █████     ███████ ██ ██  ██ ███████ ██     ████      ██    ██ ██      ███████
-							██   ██ ██      ██    ██ ██      ██  ██                ██   ██ ██  ██ ██ ██   ██ ██      ██       ██    ██ ██           ██
-							██████  ███████  ██████   ██████ ██   ██               ██   ██ ██   ████ ██   ██ ███████ ██       ██    ██  ██████ ███████
-							*/
-							?>
 							<div class="ds-row ds-mb-2">
 								<div class="ds-col">
 									<div class="ds-block">
@@ -357,7 +305,7 @@ $editor_content_body = array(
 													<textarea
 														name="dssm_settings[content][insert][googleanalytics]"
 														class="ds-input-box"
-														rows="8"><?php echo ( !empty( $dssm->settings['content']['insert']['googleanalytics'] ) ? $dssm->settings['content']['insert']['googleanalytics'] : '' ); ?></textarea>
+														rows="8"><?php echo ( ! empty( $dssm->settings['content']['insert']['googleanalytics'] ) ? $dssm->settings['content']['insert']['googleanalytics'] : '' ); ?></textarea>
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
 										</div><!-- .ds-block-body -->
@@ -369,7 +317,7 @@ $editor_content_body = array(
 									<div class="ds-block">
 										<div class="ds-block-body ds-p-1">
 											<?php
-											submit_button('', 'button-primary button-hero', '', false );
+											submit_button( '', 'button-primary button-hero', '', false );
 											echo '<a href="' . home_url() . '?dssm-preview=true" class="dssm-preview-button button button-hero ds-ml-1" target="_dssm-preview">' . __( 'Live Preview', DSSM_SLUG ) . '</a>';
 											?>
 										</div><!-- .ds-block-body -->
@@ -377,25 +325,7 @@ $editor_content_body = array(
 								</div><!-- .ds-col -->
 							</div><!-- .ds-row -->
 						</div><!-- #content.ds-tab-content -->
-						<?php
-						/*
-						████████  █████  ██████                ██████  ███████ ███████ ██  ██████  ███    ██
-						   ██    ██   ██ ██   ██               ██   ██ ██      ██      ██ ██       ████   ██
-						   ██    ███████ ██████      █████     ██   ██ █████   ███████ ██ ██   ███ ██ ██  ██
-						   ██    ██   ██ ██   ██               ██   ██ ██           ██ ██ ██    ██ ██  ██ ██
-						   ██    ██   ██ ██████                ██████  ███████ ███████ ██  ██████  ██   ████
-						*/
-						?>
 						<div id="design" class="ds-tab-content">
-							<?php
-							/*
-							██████  ██       ██████   ██████ ██   ██               ███████  ██████  ███    ██ ████████
-							██   ██ ██      ██    ██ ██      ██  ██                ██      ██    ██ ████   ██    ██
-							██████  ██      ██    ██ ██      █████       █████     █████   ██    ██ ██ ██  ██    ██
-							██   ██ ██      ██    ██ ██      ██  ██                ██      ██    ██ ██  ██ ██    ██
-							██████  ███████  ██████   ██████ ██   ██               ██       ██████  ██   ████    ██
-							*/
-							?>
 							<div class="ds-row ds-mb-2">
 								<div class="ds-col">
 									<div class="ds-block">
@@ -416,7 +346,7 @@ $editor_content_body = array(
 														class="ds-input-box"
 														name="dssm_settings[design][font][family]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['design']['font']['family'] ) ? $dssm->settings['design']['font']['family'] : ''); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['design']['font']['family'] ) ? $dssm->settings['design']['font']['family'] : '' ); ?>"
 														placeholder="Montserrat" />
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
@@ -430,7 +360,7 @@ $editor_content_body = array(
 														class="ds-input-box"
 														name="dssm_settings[design][font][headingfontsize]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['design']['font']['headingfontsize'] ) ? $dssm->settings['design']['font']['headingfontsize'] : ''); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['design']['font']['headingfontsize'] ) ? $dssm->settings['design']['font']['headingfontsize'] : '' ); ?>"
 														placeholder="80px" />
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
@@ -444,7 +374,7 @@ $editor_content_body = array(
 														class="ds-input-box"
 														name="dssm_settings[design][font][headinglineheight]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['design']['font']['headinglineheight'] ) ? $dssm->settings['design']['font']['headinglineheight'] : ''); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['design']['font']['headinglineheight'] ) ? $dssm->settings['design']['font']['headinglineheight'] : '' ); ?>"
 														placeholder="70px" />
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
@@ -458,7 +388,7 @@ $editor_content_body = array(
 														class="ds-input-box"
 														name="dssm_settings[design][font][messagefontsize]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['design']['font']['messagefontsize'] ) ? $dssm->settings['design']['font']['messagefontsize'] : ''); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['design']['font']['messagefontsize'] ) ? $dssm->settings['design']['font']['messagefontsize'] : '' ); ?>"
 														placeholder="22px" />
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
@@ -472,7 +402,7 @@ $editor_content_body = array(
 														class="ds-input-box"
 														name="dssm_settings[design][font][messagelineheight]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['design']['font']['messagelineheight'] ) ? $dssm->settings['design']['font']['messagelineheight'] : ''); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['design']['font']['messagelineheight'] ) ? $dssm->settings['design']['font']['messagelineheight'] : '' ); ?>"
 														placeholder="30px" />
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
@@ -486,11 +416,11 @@ $editor_content_body = array(
 														data-alpha="true"
 														name="dssm_settings[design][font][color]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['design']['font']['color'] ) ? $dssm->settings['design']['font']['color'] : '#fff' ); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['design']['font']['color'] ) ? $dssm->settings['design']['font']['color'] : '#fff' ); ?>"
 														placeholder="#fff" />
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
-											<div class="ds-row ds-flex-align-center ds-pb-1 ds-ml-auto ds-mr-auto ds-block-toggler<?php echo ( !empty( $dssm->settings['design']['font']['panel'] ) ? ' active' : ''); ?>">
+											<div class="ds-row ds-flex-align-center ds-pb-1 ds-ml-auto ds-mr-auto ds-block-toggler<?php echo ( ! empty( $dssm->settings['design']['font']['panel'] ) ? ' active' : '' ); ?>">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
 													<?php _e( 'Panel', DSSM_SLUG ); ?>:
 												</div>
@@ -501,7 +431,7 @@ $editor_content_body = array(
 															type="checkbox"
 															value="1"
 															class="ds-block-toggler-input"
-															<?php echo ( !empty( $dssm->settings['design']['font']['panel'] ) ? ' checked="checked"' : ''); ?> />
+															<?php echo ( ! empty( $dssm->settings['design']['font']['panel'] ) ? ' checked="checked"' : '' ); ?> />
 															<span></span>
 													</label>
 												</div><!-- .ds-col -->
@@ -517,7 +447,7 @@ $editor_content_body = array(
 															data-alpha="true"
 															name="dssm_settings[design][font][panelcolor]"
 															type="text"
-															value="<?php echo ( !empty( $dssm->settings['design']['font']['panelcolor'] ) ? $dssm->settings['design']['font']['panelcolor'] : 'rgba( 0, 0, 0, 0.7 )'); ?>"
+															value="<?php echo ( ! empty( $dssm->settings['design']['font']['panelcolor'] ) ? $dssm->settings['design']['font']['panelcolor'] : 'rgba( 0, 0, 0, 0.7 )' ); ?>"
 															placeholder="rgba( 0, 0, 0, 0.7 )" />
 													</div><!-- .ds-col -->
 												</div><!-- .ds-row -->
@@ -528,17 +458,19 @@ $editor_content_body = array(
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
 													<select class="ds-input-box" name="dssm_settings[design][font][align]">
-														<?php foreach( $aligns as $key => $align ) {
+														<?php
+														foreach ( $aligns as $key => $align ) {
 															echo '<option value="' . $align . '"' .
 																(
-																	      !empty( $dssm->settings['design']['font']['align'] )
+																			! empty( $dssm->settings['design']['font']['align'] )
 																	&& $align === $dssm->settings['design']['font']['align']
 																	? ' selected="selected"'
 																	: ''
 																) .
 																'>' . ucfirst( $key ) .
 															'</option>';
-														} ?>
+														}
+														?>
 													</select>
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
@@ -548,17 +480,19 @@ $editor_content_body = array(
 												</div>
 												<div class="ds-col-12 ds-col-lg-9 ds-p-0">
 													<select class="ds-input-box" name="dssm_settings[design][font][pos]">
-														<?php foreach( $positions as $key => $pos ) {
+														<?php
+														foreach ( $positions as $key => $pos ) {
 															echo '<option value="' . $pos . '"' .
 																(
-																	    !empty( $dssm->settings['design']['font']['pos'] )
+																		! empty( $dssm->settings['design']['font']['pos'] )
 																	&& $pos === $dssm->settings['design']['font']['pos']
 																	? ' selected="selected"'
 																	: ''
 																) .
 																'>' . ucfirst( $key ) .
 															'</option>';
-														} ?>
+														}
+														?>
 													</select>
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
@@ -566,15 +500,6 @@ $editor_content_body = array(
 									</div><!-- .ds-block -->
 								</div><!-- .ds-col -->
 							</div><!-- .ds-row -->
-							<?php
-							/*
-							██████  ██       ██████   ██████ ██   ██               ██████   █████   ██████ ██   ██  ██████  ██████   ██████  ██    ██ ███    ██ ██████
-							██   ██ ██      ██    ██ ██      ██  ██                ██   ██ ██   ██ ██      ██  ██  ██       ██   ██ ██    ██ ██    ██ ████   ██ ██   ██
-							██████  ██      ██    ██ ██      █████       █████     ██████  ███████ ██      █████   ██   ███ ██████  ██    ██ ██    ██ ██ ██  ██ ██   ██
-							██   ██ ██      ██    ██ ██      ██  ██                ██   ██ ██   ██ ██      ██  ██  ██    ██ ██   ██ ██    ██ ██    ██ ██  ██ ██ ██   ██
-							██████  ███████  ██████   ██████ ██   ██               ██████  ██   ██  ██████ ██   ██  ██████  ██   ██  ██████   ██████  ██   ████ ██████
-							*/
-							?>
 							<div class="ds-row ds-mb-2">
 								<div class="ds-col">
 									<div class="ds-block">
@@ -595,11 +520,11 @@ $editor_content_body = array(
 														data-alpha="true"
 														name="dssm_settings[design][background][color]"
 														type="text"
-														value="<?php echo ( !empty( $dssm->settings['design']['background']['color'] ) ? $dssm->settings['design']['background']['color'] : '#fff'); ?>"
+														value="<?php echo ( ! empty( $dssm->settings['design']['background']['color'] ) ? $dssm->settings['design']['background']['color'] : '#fff' ); ?>"
 														placeholder="#fff" />
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
-											<div class="ds-row ds-flex-align-center ds-ml-auto ds-mr-auto ds-block-toggler<?php echo ( !empty( $dssm->settings['design']['background']['enabled'] ) ? ' active' : ''); ?>">
+											<div class="ds-row ds-flex-align-center ds-ml-auto ds-mr-auto ds-block-toggler<?php echo ( ! empty( $dssm->settings['design']['background']['enabled'] ) ? ' active' : '' ); ?>">
 												<div class="ds-col-12 ds-col-lg-3 ds-p-0 ds-pr-lg-2">
 													<?php _e( 'Image', DSSM_SLUG ); ?>:
 												</div>
@@ -610,7 +535,7 @@ $editor_content_body = array(
 															name="dssm_settings[design][background][enabled]"
 															class="ds-block-toggler-input"
 															value="1"
-															<?php echo ( !empty( $dssm->settings['design']['background']['enabled'] ) ? ' checked="checked"' : ''); ?> />
+															<?php echo ( ! empty( $dssm->settings['design']['background']['enabled'] ) ? ' checked="checked"' : '' ); ?> />
 															<span></span>
 													</label>
 												</div><!-- .ds-col -->
@@ -625,13 +550,14 @@ $editor_content_body = array(
 															id="background-image-name"
 															name="dssm_settings[design][background][image_active]"
 															type="hidden"
-															value="<?php echo ( !empty( $dssm->settings['design']['background']['image_active'] ) ? $dssm->settings['design']['background']['image_active'] : '' ); ?>" />
+															value="<?php echo ( ! empty( $dssm->settings['design']['background']['image_active'] ) ? $dssm->settings['design']['background']['image_active'] : '' ); ?>" />
 														<div id="background-image-picker" class="ds-row">
 															<?php
-															$background_images = ( !empty( $dssm->settings['design']['background']['images'] ) ? $dssm->settings['design']['background']['images'] : array() );
+															$background_images = ( ! empty( $dssm->settings['design']['background']['images'] ) ? $dssm->settings['design']['background']['images'] : array() );
 
-															foreach( $background_images as $type => $images ) {
-																foreach( $images as $key => $image ) { ?>
+															foreach ( $background_images as $type => $images ) {
+																foreach ( $images as $key => $image ) {
+																	?>
 																	<label<?php echo ( 'custom' === $type ? ' id="custom-' . $key . '"' : '' ); ?> class="ds-radio ds-radio-image ds-col ds-col-lg-4 <?php echo $type; ?> ds-mb-2">
 																		<?php echo ( 'custom' === $type ? '<div class="remove">X</div>' : '' ); ?>
 																		<input
@@ -644,14 +570,14 @@ $editor_content_body = array(
 																			value="<?php echo $image['url']; ?>" />
 																		<input
 																			type="radio"
-																			<?php echo ( !empty( $dssm->settings['design']['background']['image_active'] ) && $image['name'] === $dssm->settings['design']['background']['image_active']  ? ' checked="checked"' : ''); ?> />
+																			<?php echo ( ! empty( $dssm->settings['design']['background']['image_active'] ) && $image['name'] === $dssm->settings['design']['background']['image_active'] ? ' checked="checked"' : '' ); ?> />
 																		<img width="100%" height="auto" src="<?php echo $image['url']; ?>" />
 																	</label>
 																<?php } ?>
 															<?php } ?>
 															<div class="ds-col ds-col-lg-4 ds-mb-2">
 																<button id="background-image-add" type="button">
-																	<?php _e('+ Upload Image'); ?>
+																	<?php _e( '+ Upload Image' ); ?>
 																</button>
 															</div>
 														</div>
@@ -662,15 +588,6 @@ $editor_content_body = array(
 									</div><!-- .ds-block -->
 								</div><!-- .ds-col -->
 							</div><!-- .ds-row -->
-							<?php
-							/*
-							██████  ██       ██████   ██████ ██   ██                ██████ ███████ ███████
-							██   ██ ██      ██    ██ ██      ██  ██                ██      ██      ██
-							██████  ██      ██    ██ ██      █████       █████     ██      ███████ ███████
-							██   ██ ██      ██    ██ ██      ██  ██                ██           ██      ██
-							██████  ███████  ██████   ██████ ██   ██                ██████ ███████ ███████
-							*/
-							?>
 							<div class="ds-row ds-mb-2">
 								<div class="ds-col">
 									<div class="ds-block">
@@ -689,7 +606,7 @@ $editor_content_body = array(
 													<textarea
 														name="dssm_settings[design][custom][css]"
 														class="ds-input-box"
-														rows="8"><?php echo ( !empty( $dssm->settings['design']['custom']['css'] ) ? $dssm->settings['design']['custom']['css'] : '' ); ?></textarea>
+														rows="8"><?php echo ( ! empty( $dssm->settings['design']['custom']['css'] ) ? $dssm->settings['design']['custom']['css'] : '' ); ?></textarea>
 												</div><!-- .ds-col -->
 											</div><!-- .ds-row -->
 										</div><!-- .ds-block-body -->
@@ -701,7 +618,7 @@ $editor_content_body = array(
 									<div class="ds-block">
 										<div class="ds-block-body ds-p-1">
 											<?php
-											submit_button('', 'button-primary button-hero', '', false );
+											submit_button( '', 'button-primary button-hero', '', false );
 											echo '<a href="' . home_url() . '?dssm-preview=true" class="dssm-preview-button button button-hero ds-ml-1" target="_dssm-preview">' . __( 'Live Preview', DSSM_SLUG ) . '</a>';
 											?>
 										</div><!-- .ds-block-body -->
@@ -711,15 +628,6 @@ $editor_content_body = array(
 						</div><!-- #design.ds-tab-content -->
 					</form>
 				</div><!-- .ds-col -->
-				<?php
-				/*
-				███████ ██ ██████  ███████ ██████   █████  ██████
-				██      ██ ██   ██ ██      ██   ██ ██   ██ ██   ██
-				███████ ██ ██   ██ █████   ██████  ███████ ██████
-				     ██ ██ ██   ██ ██      ██   ██ ██   ██ ██   ██
-				███████ ██ ██████  ███████ ██████  ██   ██ ██   ██
-				*/
-				?>
 				<div class="ds-col-12 ds-col-lg-3">
 					<div class="ds-row ds-mb-2">
 						<div class="ds-col">

@@ -1,4 +1,18 @@
-<?php if( !defined( 'ABSPATH' ) ) exit; ?>
+<?php
+/**
+ * DS Site Message Admin Notice Template
+ *
+ * This template displays admin notices for the DS Site Message plugin.
+ * It shows maintenance mode status and other important notifications.
+ *
+ * @package DS_Site_Message
+ * @since 1.0.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
 <style type="text/css">
 	#dssm-admin-notice-container {
 		box-sizing: border-box;
@@ -58,8 +72,8 @@
 	}
 </style>
 <div id="dssm-admin-notice-container">
-		<h2><?php echo _e( 'MAINTENANCE MODE', DSSM_SLUG ); ?></h2>
+		<h2><?php esc_html_e( 'MAINTENANCE MODE', 'ds-site-message' ); ?></h2>
 		<span class="close" onclick="jQuery( this ).parent( '#dssm-admin-notice-container' ).fadeOut( function() { jQuery( this ).remove(); } );">&times;</span>
-		<span><?php _e( 'Your website is currently in maintenance mode.', DSSM_SLUG ); ?></span>
-		<a href="<?php echo get_home_url(); ?>?dssm-preview=true" target="_blank"><?php _e( 'Preview', DSSM_SLUG ); ?></a>
+		<span><?php esc_html_e( 'Your website is currently in maintenance mode.', 'ds-site-message' ); ?></span>
+		<a href="<?php echo esc_url( add_query_arg( 'dssm-preview', 'true', home_url() ) ); ?>" target="_blank"><?php esc_html_e( 'Preview', 'ds-site-message' ); ?></a>
 </div>
